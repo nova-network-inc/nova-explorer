@@ -1,0 +1,51 @@
+{
+  "tagFormat": "${version}",
+  "branch": "master",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/git",
+    "@semantic-release/exec"
+  ],
+  "prepare": [
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "./prepare.sh ${nextRelease.version}"
+      }
+    ]
+  ],
+  "verifyConditions": [
+    "@semantic-release/changelog",
+    "@semantic-release/git",
+    "@semantic-release/github",
+    "@qiwi/semantic-release-gh-pages-plugin",
+    {
+      "path": "semantic-release-docker",
+      "registryUrl": "docker.io"
+    }
+  ],
+  "publish": [
+    "@semantic-release/github",
+    {
+      "path": "@qiwi/semantic-release-gh-pages-plugin",
+      "msg": "github pages release",
+      "src": "build/",
+      "branch": "gh-pages",
+      "pullTagsBranch": ""
+    },
+    {
+      "path": "semantic-release-docker",
+      "name": "etclabscore/expedition"
+    }
+  ],
+  "success": [
+    "@semantic-release/github"
+  ],
+  "fail": [
+    "@semantic-release/github"
+  ]
+}
