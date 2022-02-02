@@ -35,9 +35,12 @@ export const darkTheme = responsiveFontSizes(createMuiTheme({
   },
   palette: {
     type: "dark",
+    secondary: {
+      main: "#FFF",
+    },
     background: {
-      default: grey[900],
-      paper: grey[800],
+      default: "#222431",
+      paper: "#2C2E3F",
     },
   },
   overrides: {

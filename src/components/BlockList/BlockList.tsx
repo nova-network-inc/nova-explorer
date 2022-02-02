@@ -18,7 +18,7 @@ function BlockList({ blocks }: any) {
     return b.number - a.number;
   });
   return (
-    <div style={{ width: "100%", overflowX: "auto" }}>
+    <div style={{ width: "75%", overflowX: "auto", margin: "auto" }}>
       <Table>
         <TableHead>
           <TableRow>

@@ -4,6 +4,7 @@ import {
   Toolbar,
   Typography,
   IconButton,
+  Button,
   Grid,
   InputBase,
   Tooltip,
@@ -238,7 +239,7 @@ function App(props: any) {
   return (
     <Router history={history}>
       <ThemeProvider theme={theme}>
-        <AppBar position="sticky" color="default" elevation={0}>
+        <AppBar position="sticky" color="inherit" elevation={0}>
           <Toolbar>
             <Grid
               justify="space-between"
@@ -271,7 +272,7 @@ function App(props: any) {
                     </Grid>
                     <Grid>
                       <Typography color="textSecondary" variant="h6">
-                        {t("Expedition")}
+                        {t("Nova Explorer")}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -280,7 +281,7 @@ function App(props: any) {
               <Grid item md={6} xs={12}>
                 <InputBase
                   placeholder={t(
-                    "Enter an Address, Transaction Hash or Block Number"
+                    "Search by Address / Txn Hash / Block"
                   )}
                   onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
                     if (event.keyCode === 13) {
@@ -302,6 +303,14 @@ function App(props: any) {
                   }}
                 />
               </Grid>
+
+              <Button
+                color="secondary"
+                variant="outlined"
+                href="https://novanetwork.io/"
+                target="_blank"
+              >Token List</Button>
+
               <Grid item>
                 {selectedChain ? (
                   <ChainDropdown
@@ -321,33 +330,8 @@ function App(props: any) {
                     {!query.rpcUrl && <CircularProgress />}
                   </>
                 )}
-                <Tooltip title={t("Add custom chain") as string}>
-                  <IconButton onClick={openAddChainModal}>
-                    <PlaylistAddIcon />
-                  </IconButton>
-                </Tooltip>
+
                 <LanguageMenu />
-                <Tooltip title={t("JSON-RPC API Documentation") as string}>
-                  <IconButton
-                    onClick={
-                      () =>
-                        window.open(
-                          "https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/etclabscore/ethereum-json-rpc-specification/master/openrpc.json"
-                        ) //tslint:disable-line
-                    }
-                  >
-                    <NotesIcon />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title={t("Expedition Github") as string}>
-                  <IconButton
-                    onClick={() =>
-                      window.open("https://github.com/xops/expedition")
-                    }
-                  >
-                    <CodeIcon />
-                  </IconButton>
-                </Tooltip>
                 <Tooltip title={t("Toggle Dark Mode") as string}>
                   <IconButton onClick={darkMode.toggle}>
                     {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}

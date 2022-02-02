@@ -13,11 +13,12 @@ function AddressView(props: IAddressViewProps) {
   const { address, balance, txCount, code } = props;
   const { t } = useTranslation();
   return (
+    <div style={{marginTop: "20px"}}>
     <Card>
       <CardContent>
-        <Typography variant="h6">{t("Address")}: {address}</Typography>
-        <Typography variant="h6">{t("Balance")}: {balance}</Typography>
-        <Typography variant="h6">{t("Transactions")}: {txCount}</Typography>
+        <Typography variant="h6">{t("Address")}: <b>{address}</b></Typography>
+        <Typography variant="h6">{t("Balance")}: <b>{balance}</b></Typography>
+        <Typography variant="h6">{t("Total Transactions")}: <b>{txCount}</b></Typography>
         <br />
         <div>
           <div>{t("Code")}</div>
@@ -27,6 +28,7 @@ function AddressView(props: IAddressViewProps) {
         </div>
       </CardContent>
     </Card>
+    </div>
   );
 }
 

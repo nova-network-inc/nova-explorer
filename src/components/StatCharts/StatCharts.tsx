@@ -50,21 +50,24 @@ interface IProps {
 const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
   const { t } = useTranslation();
   return (
-    <Grid item container>
-      <Grid key="hashChart" item xs={12} md={6} lg={3}>
+    <Grid item container justify="center">
+
+      {/* <Grid key="hashChart" item xs={12} md={6} lg={3}>
         <ChartCard title={t("Hash Rate")}>
           <VictoryChart height={config.chartHeight} width={config.chartWidth} theme={victoryTheme as any}>
             <VictoryLine data={blocks.map(blockMapHashRate)} />
           </VictoryChart>
         </ChartCard>
-      </Grid>
+      </Grid> */}
+
       <Grid key="txChart" item xs={12} md={6} lg={3}>
-        <ChartCard title={t("Transaction count")}>
+        <ChartCard title={t("Transaction Count")}>
           <VictoryChart height={config.chartHeight} width={config.chartWidth} theme={victoryTheme as any}>
             <VictoryBar data={blocks.map(blockMapTransactionCount)} />
           </VictoryChart>
         </ChartCard>
       </Grid>
+
       <Grid key="gasUsed" item xs={12} md={6} lg={3}>
         <ChartCard title={t("Gas Used")}>
           <VictoryChart height={config.chartHeight} width={config.chartWidth} theme={victoryTheme as any}>
@@ -72,13 +75,15 @@ const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
           </VictoryChart>
         </ChartCard>
       </Grid>
-      <Grid key="uncles" item xs={12} md={6} lg={3}>
+
+      {/* <Grid key="uncles" item xs={12} md={6} lg={3}>
         <ChartCard title={t("Uncles")}>
           <VictoryChart height={config.chartHeight} width={config.chartWidth} theme={victoryTheme as any}>
             <VictoryBar data={blocks.map(blockMapUncles)} />
           </VictoryChart>
         </ChartCard>
-      </Grid>
+      </Grid> */}
+      
     </Grid>
   );
 };

@@ -87,24 +87,48 @@ export default (props: any) => {
   }
 
   return (
-    <div>
+    <div style={{marginTop: "20px"}}>
       <Grid container spacing={3} direction="column">
-        <Grid item container justify="space-between">
+        <Grid item container justify="center">
+
+        {/* Element, Network Status */}
+
+        <Grid item key="">
+          <ChartCard title={t("Network Status")}>
+            <Typography variant="h5">Operational</Typography>
+          </ChartCard>
+        </Grid>
+
+        {/* Element, Price */}
+
+        <Grid item key="">
+          <ChartCard title={t("Consensus")}>
+            <Typography variant="h5">PoW</Typography>
+          </ChartCard>
+        </Grid>
+
+        {/* Element, Latest Block */}
+
           <Grid item key="blockHeight">
-            <ChartCard title={t("Block Height")}>
-              <Typography variant="h4">{blockNumber}</Typography>
+            <ChartCard title={t("Latest Block")}>
+              <Typography variant="h5">{blockNumber}</Typography>
             </ChartCard>
           </Grid>
+
+          {/* Left Chain ID out of the dashboard. Can be re-implemented by simply uncommenting it.
+
           <Grid key="chainId" item>
             <ChartCard title={t("Chain ID")}>
               <Typography variant="h4">{hexToNumber(chainId)}</Typography>
             </ChartCard>
           </Grid>
+          */}
+
           {syncing &&
             <div key="syncing">
               <ChartCard title={t("Syncing")}>
                 {typeof syncing === "object" && syncing.currentBlock &&
-                  <Typography variant="h4">
+                  <Typography variant="h5">
                     {hexToNumber(syncing.currentBlock)} / {hexToNumber(syncing.highestBlock || "0x0")}
                   </Typography>
                 }
@@ -113,11 +137,14 @@ export default (props: any) => {
           }
           <Grid key="gasPrice" item>
             <ChartCard title={t("Gas Price")}>
-              <Typography variant="h4">{weiToGwei(hexToNumber(gasPrice))} Gwei</Typography>
+              <Typography variant="h5">{weiToGwei(hexToNumber(gasPrice))} Gwei</Typography>
             </ChartCard>
           </Grid>
-          <Grid key="hRate" item>
-            <ChartCard title={t("Network Hash Rate")}>
+
+          {/* :: Left the hash rate off the dashboard. Can be re-implemented by simply uncommenting it.
+
+            <Grid key="hRate" item>
+             <ChartCard title={t("Network Hash Rate")}>
               {block &&
                 <HashRate block={block} blockTime={config.blockTime}>
                   {(hashRate: any) => <Typography variant="h4">{hashRate} GH/s</Typography>}
@@ -125,23 +152,36 @@ export default (props: any) => {
               }
             </ChartCard>
           </Grid>
+          */}
+
+          {/* :: Left the number of peers out of the dashboard. Can be re-implemented by simply uncommenting it.
+
           <Grid key="peers" item>
             <ChartCard title={t("Peers")}>
               <Typography variant="h4">{hexToNumber(peerCount)}</Typography>
             </ChartCard>
           </Grid>
+          */}
+
         </Grid>
       </Grid>
+      <div style={{ marginTop: "20px", marginBottom: "-20px" }}>
       <StatCharts victoryTheme={victoryTheme} blocks={blocks} />
       <Grid container justify="flex-end">
+
+
+      {/* Left the 'More Stats' button out of the dashboard. Can be re-implemented by simply uncommenting.
+
         <Button
           color="primary"
           variant="outlined"
           endIcon={<ArrowForwardIos />}
           onClick={() => props.history.push("/stats/miners")}
         >More Stats</Button>
+        */}
+
       </Grid>
-      <br />
+      </div>
 
       <BlockListContainer
         from={Math.max(blockNumber - 14, 0)}
@@ -152,6 +192,11 @@ export default (props: any) => {
           props.history.push(`/blocks/${blockNumber - 15}`);
         }}
         style={{ marginTop: "30px" }} />
+
+        <div style={{ marginTop: "40px", marginBottom: "40px", textAlign: "center", lineHeight: ".5" }}>
+        <p><b>Nova Explorer</b></p>
+        <p>Powered by Nova Network Inc.</p>
+        </div>
     </div >
   );
 };
