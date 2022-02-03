@@ -91,29 +91,26 @@ export default (props: any) => {
       <Grid container spacing={3} direction="column">
         <Grid item container justify="center">
 
+        {/* Element, Native Token */}
+
+        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+          <p>Native Coin</p>
+          <p style={{fontSize: "14pt"}}>Hypernova (HNT)</p>
+          </div>
+
         {/* Element, Network Status */}
 
-        <Grid item key="">
-          <ChartCard title={t("Network Status")}>
-            <Typography variant="h5">Operational</Typography>
-          </ChartCard>
-        </Grid>
-
-        {/* Element, Price */}
-
-        <Grid item key="">
-          <ChartCard title={t("Consensus")}>
-            <Typography variant="h5">PoW</Typography>
-          </ChartCard>
-        </Grid>
+        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+          <p>Network Status</p>
+          <p style={{fontSize: "14pt"}}>Operational</p>
+          </div>
 
         {/* Element, Latest Block */}
 
-          <Grid item key="blockHeight">
-            <ChartCard title={t("Latest Block")}>
-              <Typography variant="h5">{blockNumber}</Typography>
-            </ChartCard>
-          </Grid>
+        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+          <p>Latest Block</p>
+          <p style={{fontSize: "14pt"}}>{blockNumber}</p>
+          </div>
 
           {/* Left Chain ID out of the dashboard. Can be re-implemented by simply uncommenting it.
 
@@ -135,11 +132,11 @@ export default (props: any) => {
               </ChartCard>
             </div>
           }
-          <Grid key="gasPrice" item>
-            <ChartCard title={t("Gas Price")}>
-              <Typography variant="h5">{weiToGwei(hexToNumber(gasPrice))} Gwei</Typography>
-            </ChartCard>
-          </Grid>
+
+          <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+            <p>Gas Price</p>
+            <p style={{fontSize: "14pt"}}>{weiToGwei(hexToNumber(gasPrice))} Gwei</p>
+            </div>
 
           {/* :: Left the hash rate off the dashboard. Can be re-implemented by simply uncommenting it.
 

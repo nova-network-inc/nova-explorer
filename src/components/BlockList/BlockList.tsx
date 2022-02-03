@@ -81,9 +81,9 @@ function BlockList({ blocks }: any) {
                           {children}
                         </RouterLink>
                       )}>
-                      {authorHashShort}
+                      {b.miner}
                     </Link>
-                    &nbsp;<sup>{hexToString(b.extraData).substring(0, 20)}</sup>
+
                   </Typography>
                 </TableCell>
                 <TableCell component="th" scope="row">

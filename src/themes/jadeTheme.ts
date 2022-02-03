@@ -18,8 +18,12 @@ export const lightTheme = responsiveFontSizes(createMuiTheme({
     },
   },
   palette: {
+    secondary: {
+      main: "#333",
+    },
     background: {
-      default: "#fff",
+      default: "#F8F8F8",
+
     },
   },
 }));

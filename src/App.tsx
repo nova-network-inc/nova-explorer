@@ -54,13 +54,49 @@ import useChainListStore from "./stores/useChainListStore";
 import useEthRPCStore from "./stores/useEthRPCStore";
 import AddChain from "./components/AddChain/AddChain";
 import { NetworkWifi } from "@material-ui/icons";
+import { Public } from "@material-ui/icons";
+
 
 const history = createPreserveQueryHistory(createBrowserHistory, [
   "network",
   "rpcUrl",
 ])();
 
+declare const window: any
+
 function App(props: any) {
+
+  {/* Button to add Nova Network to MetaMask*/}
+
+  const [chainId, setChainId] = useState<number | null>(null)
+    const [log, setLog] = useState<string[]>([])
+
+    const networkName = chainId === 30 ? 'Mainnet' : 'Testnet'
+
+    const addNetwork = (params: any) =>
+      window.ethereum.request({ method: 'wallet_addEthereumChain', params })
+        .then(() => {
+          setLog([...log, `Switched to ${params[0].chainName} (${parseInt(params[0].chainId)})`])
+          setChainId(parseInt(params[0].chainId))
+        })
+        .catch((error: Error) => setLog([...log, `Error: ${error.message}`]))
+
+    const addNovaMainnet = () =>
+    addNetwork([
+      {
+        chainId: '0x57',
+        chainName: 'Nova Network',
+        nativeCurrency: {
+          name: 'Supernova',
+          symbol: 'SNT',
+          decimals: 18
+        },
+        rpcUrls: ['http://77.68.89.37:8545/'],
+        blockExplorerUrls: ['http://explorer.novanetwork.io/ ']
+      }
+    ])
+
+
   const { t } = useTranslation();
   const darkMode = useDarkMode();
   const [search, setSearch] = useState();
@@ -240,7 +276,7 @@ function App(props: any) {
     <Router history={history}>
       <ThemeProvider theme={theme}>
         <AppBar position="sticky" color="inherit" elevation={0}>
-          <Toolbar>
+          <Toolbar style={{margin: "10px"}}>
             <Grid
               justify="space-between"
               alignItems="center"
@@ -261,7 +297,7 @@ function App(props: any) {
                     </RouterLink>
                   )}
                 >
-                  <Grid container>
+                  <Grid container style={{margin: "10px"}}>
                     <Grid>
                       <img
                         alt="expedition-logo"
@@ -270,18 +306,16 @@ function App(props: any) {
                         src={expeditionLogo}
                       />
                     </Grid>
-                    <Grid>
-                      <Typography color="textSecondary" variant="h6">
-                        {t("Nova Explorer")}
+                    <Typography color="textSecondary" variant="h6">
+                        {t("Nova Network")}
                       </Typography>
-                    </Grid>
                   </Grid>
                 </Link>
               </Grid>
-              <Grid item md={6} xs={12}>
+              <Grid item md={6} xs={12} style={{margin: "20px"}}>
                 <InputBase
                   placeholder={t(
-                    "Search by Address / Txn Hash / Block"
+                    "🔎 Search by Address, Txn Hash, Block..."
                   )}
                   onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
                     if (event.keyCode === 13) {
@@ -304,40 +338,42 @@ function App(props: any) {
                 />
               </Grid>
 
+              <div className="text-center mx-auto" style={{margin: "auto", justifyContent: "space-between", textAlign: "center"}}>
+
+              <span style={{margin: "10px"}}>
               <Button
                 color="secondary"
                 variant="outlined"
-                href="https://novanetwork.io/"
+                href="https://novanetwork.io/verified-tokens"
                 target="_blank"
-              >Token List</Button>
+              >Tokens</Button>
+              </span>
 
-              <Grid item>
-                {selectedChain ? (
-                  <ChainDropdown
-                    chains={chains}
-                    onChange={setSelectedChain}
-                    selected={selectedChain}
-                  />
-                ) : (
-                  <>
-                    {query && query.rpcUrl && (
-                      <Tooltip title={query.rpcUrl}>
-                        <IconButton >
-                          <NetworkWifi />
-                        </IconButton>
-                      </Tooltip>
-                    )}
-                    {!query.rpcUrl && <CircularProgress />}
-                  </>
-                )}
+              <Tooltip title={t("Nova Network Website") as string}>
+                                <IconButton
+                                  onClick={() =>
+                                    window.open("https://novanetwork.io/")
+                                  }
+                                >
+                                  <Public />
+                                </IconButton>
+                              </Tooltip>
 
-                <LanguageMenu />
-                <Tooltip title={t("Toggle Dark Mode") as string}>
-                  <IconButton onClick={darkMode.toggle}>
-                    {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
-                  </IconButton>
-                </Tooltip>
-              </Grid>
+              <LanguageMenu />
+
+              <Tooltip title={t("Toggle Dark Mode") as string}>
+                <IconButton onClick={darkMode.toggle}>
+                  {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
+                </IconButton>
+              </Tooltip>
+
+              {/* }<Button
+                color="secondary"
+                variant="outlined"
+                onClick={addNovaMainnet}
+              >MetaMask</Button> */}
+
+              </div>
             </Grid>
           </Toolbar>
         </AppBar>
