@@ -95,7 +95,7 @@ export default (props: any) => {
 
         <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
           <p>Native Coin</p>
-          <p style={{fontSize: "14pt"}}>Hypernova (HNT)</p>
+          <p style={{fontSize: "14pt"}}>Nebula (NBX)</p>
           </div>
 
         {/* Element, Network Status */}

@@ -344,7 +344,7 @@ function App(props: any) {
               <Button
                 color="secondary"
                 variant="outlined"
-                href="https://novanetwork.io/verified-tokens"
+                href="https://novanetwork.io/verified-contracts"
                 target="_blank"
               >Tokens</Button>
               </span>
