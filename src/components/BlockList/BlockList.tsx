@@ -18,7 +18,7 @@ function BlockList({ blocks }: any) {
     return b.number - a.number;
   });
   return (
-    <div style={{ width: "75%", overflowX: "auto", margin: "auto" }}>
+    <div style={{ width: "85%", overflowX: "auto", margin: "auto" }}>
       <Table>
         <TableHead>
           <TableRow>
@@ -81,9 +81,9 @@ function BlockList({ blocks }: any) {
                           {children}
                         </RouterLink>
                       )}>
-                      {b.miner}
+                      {authorHashShort}
                     </Link>
-
+                    &nbsp;<sup>{hexToString(b.extraData).substring(0, 20)}</sup>
                   </Typography>
                 </TableCell>
                 <TableCell component="th" scope="row">

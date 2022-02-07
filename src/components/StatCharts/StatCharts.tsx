@@ -52,7 +52,7 @@ const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
   return (
     <Grid item container justify="center">
 
-      {/* <Grid key="hashChart" item xs={12} md={6} lg={3}>
+       {/* <Grid key="hashChart" item xs={12} md={6} lg={3}>
         <ChartCard title={t("Hash Rate")}>
           <VictoryChart height={config.chartHeight} width={config.chartWidth} theme={victoryTheme as any}>
             <VictoryLine data={blocks.map(blockMapHashRate)} />
@@ -83,7 +83,7 @@ const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
           </VictoryChart>
         </ChartCard>
       </Grid> */}
-      
+
     </Grid>
   );
 };
