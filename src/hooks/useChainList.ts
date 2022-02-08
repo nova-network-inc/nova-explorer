@@ -9,9 +9,14 @@ export default function() {
   const [chains, setChains] = React.useState<Chain[]>([
 {
       name: "Nova Network",
-      network: "by Nova Network Inc.",
+      network: "Mainnet",
       rpc: ["http://77.68.89.37:8545"],
     },
+    {
+          name: "Nebula Testnet",
+          network: "Testnet",
+          rpc: ["http://74.208.29.238:8545/"],
+        },
   ]);
 
   // uncomment once we add 'chain list provider' concept. This list blows.

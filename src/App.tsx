@@ -338,9 +338,27 @@ function App(props: any) {
                 />
               </Grid>
 
-              <div className="text-center mx-auto" style={{margin: "auto", justifyContent: "space-between", textAlign: "center"}}>
+              <div className="text-center mx-auto" style={{marginLeft: "-10px", marginRight: "-10px", marginBottom: "10px", justifyContent: "space-between", textAlign: "center"}}>
+              {selectedChain ? (
+                   <ChainDropdown
+                     chains={chains}
+                     onChange={setSelectedChain}
+                     selected={selectedChain}
+                   />
+                 ) : (
+                   <>
+                     {query && query.rpcUrl && (
+                       <Tooltip title={query.rpcUrl}>
+                         <IconButton >
+                           <NetworkWifi />
+                         </IconButton>
+                       </Tooltip>
+                     )}
+                     {!query.rpcUrl && <CircularProgress />}
+                   </>
+                 )}
+              <span style={{margin: "5px"}}>
 
-              <span style={{margin: "10px"}}>
               <Button
                 color="secondary"
                 variant="outlined"
@@ -348,7 +366,11 @@ function App(props: any) {
                 target="_blank"
               >Tokens</Button>
               </span>
-
+              <Tooltip title={t("Toggle Dark Mode") as string}>
+                <IconButton onClick={darkMode.toggle}>
+                  {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
+                </IconButton>
+              </Tooltip>
               <Tooltip title={t("Nova Network Website") as string}>
                                 <IconButton
                                   onClick={() =>
@@ -358,14 +380,6 @@ function App(props: any) {
                                   <Public />
                                 </IconButton>
                               </Tooltip>
-
-              <LanguageMenu />
-
-              <Tooltip title={t("Toggle Dark Mode") as string}>
-                <IconButton onClick={darkMode.toggle}>
-                  {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
-                </IconButton>
-              </Tooltip>
 
               {/* }<Button
                 color="secondary"
