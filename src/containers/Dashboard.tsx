@@ -88,7 +88,13 @@ export default (props: any) => {
 
   return (
     <div style={{marginTop: "20px"}}>
-      <Grid container spacing={3} direction="column">
+      <Grid container spacing={3} direction="column" style={{
+          width: "80%",
+          margin: "30px auto 30px auto",
+          border: "1px solid #C0C0C0",
+          borderRadius: "20px",
+          padding: "20px",
+      }}>
         <Grid item container justify="center">
 
         {/* Element, Native Token */}
@@ -162,7 +168,6 @@ export default (props: any) => {
 
         </Grid>
       </Grid>
-      <div style={{ marginTop: "20px", marginBottom: "-20px" }}>
       <StatCharts victoryTheme={victoryTheme} blocks={blocks} />
       <Grid container justify="flex-end">
 
@@ -178,7 +183,7 @@ export default (props: any) => {
         */}
 
       </Grid>
-      </div>
+
 
       <BlockListContainer
         from={Math.max(blockNumber - 14, 0)}
@@ -188,7 +193,13 @@ export default (props: any) => {
         onNext={() => {
           props.history.push(`/blocks/${blockNumber - 15}`);
         }}
-        style={{ marginTop: "30px" }} />
+        style={{
+            width: "80%",
+            margin: "30px auto 30px auto",
+            border: "1px solid #C0C0C0",
+            borderRadius: "20px",
+            padding: "30px",
+        }} />
 
         <div style={{ marginTop: "40px", marginBottom: "40px", textAlign: "center", lineHeight: ".5" }}>
         <p><b>Nova Explorer</b></p>
