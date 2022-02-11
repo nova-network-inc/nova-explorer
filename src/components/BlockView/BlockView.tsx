@@ -30,7 +30,7 @@ function BlockView(props: any) {
   return (
 
     <div style={{
-      width: "80%",
+      width: "95%",
       margin: "30px auto 30px auto",
       border: "1px solid #C0C0C0",
       borderRadius: "20px",

@@ -55,6 +55,8 @@ import useEthRPCStore from "./stores/useEthRPCStore";
 import AddChain from "./components/AddChain/AddChain";
 import { NetworkWifi } from "@material-ui/icons";
 import { Public } from "@material-ui/icons";
+import MenuListComposition from "./header-menu-resources"
+import MenuListComposition2 from "./header-menu-blockchain"
 
 
 const history = createPreserveQueryHistory(createBrowserHistory, [
@@ -87,12 +89,12 @@ function App(props: any) {
         chainId: '0x57',
         chainName: 'Nova Network',
         nativeCurrency: {
-          name: 'Supernova',
-          symbol: 'SNT',
+          name: 'Nebula X',
+          symbol: 'NBX',
           decimals: 18
         },
-        rpcUrls: ['http://77.68.89.37:8545/'],
-        blockExplorerUrls: ['http://explorer.novanetwork.io/ ']
+        rpcUrls: ['http://nova.genyrpc.info:8545/'],
+        blockExplorerUrls: ['http://explorer.novanetwork.io/']
       }
     ])
 
@@ -275,15 +277,19 @@ function App(props: any) {
   return (
     <Router history={history}>
       <ThemeProvider theme={theme}>
-        <AppBar position="sticky" color="inherit" elevation={0}>
-          <Toolbar style={{margin: "10px"}}>
+
+        <AppBar position="sticky" color="inherit" elevation={0} style={{ borderBottom: "1px solid #c0c0c0" }}>
+
+          <Toolbar style={{margin: "auto"}}>
+
             <Grid
               justify="space-between"
               alignItems="center"
-              alignContent="center"
+              alignContent="flex-start"
               container
             >
-              <Grid item style={{ marginTop: "8px" }}>
+
+              <Grid item alignContent="flex-start" justify="flex-start" style={{ margin: "auto" }}>
                 <Link
                   component={({
                     className,
@@ -297,25 +303,44 @@ function App(props: any) {
                     </RouterLink>
                   )}
                 >
-                  <Grid container style={{margin: "10px"}}>
+                  <Grid container>
                     <Grid>
                       <img
                         alt="expedition-logo"
-                        height="30"
+                        height="38"
                         style={{ marginRight: "10px" }}
                         src={expeditionLogo}
                       />
                     </Grid>
-                    <Typography color="textSecondary" variant="h6">
-                        {t("Nova Network")}
-                      </Typography>
+
+                    <div className="text-center mx-auto" style={{justifyContent: "space-between", textAlign: "center", marginRight: "10px", marginLeft: "10px"}}>
+                    {selectedChain ? (
+                         <ChainDropdown
+                           chains={chains}
+                           onChange={setSelectedChain}
+                           selected={selectedChain}
+                           />
+                       ) : (
+                         <>
+                           {query && query.rpcUrl && (
+                             <Tooltip title={query.rpcUrl}>
+                               <IconButton >
+                                 <NetworkWifi />
+                               </IconButton>
+                             </Tooltip>
+                           )}
+                           {!query.rpcUrl && <CircularProgress />}
+                         </>
+                       )}
+                       </div>
                   </Grid>
                 </Link>
               </Grid>
-              <Grid item md={6} xs={12} style={{margin: "20px"}}>
+
+              <Grid item style={{margin: "20px"}}>
                 <InputBase
                   placeholder={t(
-                    "🔎 Search by Address, Txn Hash, Block..."
+                    "Search by Address, Txn Hash, Block..."
                   )}
                   onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
                     if (event.keyCode === 13) {
@@ -331,71 +356,63 @@ function App(props: any) {
                   fullWidth
                   style={{
                     background: "rgba(0,0,0,0.1)",
-                    borderRadius: "4px",
-                    padding: "5px 10px 0px 10px",
+                    borderRadius: "10px",
+                    border: "1px solid #c0c0c0",
+                    padding: "10px 15px 10px 15px",
                     marginRight: "5px",
+                    fontSize: "10pt",
+                    fontWeight: "normal",
+                    width: "340px",
+                    maxWidth: "80%",
                   }}
                 />
               </Grid>
 
-              <div className="text-center mx-auto" style={{marginLeft: "-10px", marginRight: "-10px", marginBottom: "10px", justifyContent: "space-between", textAlign: "center"}}>
-              {selectedChain ? (
-                   <ChainDropdown
-                     chains={chains}
-                     onChange={setSelectedChain}
-                     selected={selectedChain}
-                   />
-                 ) : (
-                   <>
-                     {query && query.rpcUrl && (
-                       <Tooltip title={query.rpcUrl}>
-                         <IconButton >
-                           <NetworkWifi />
-                         </IconButton>
-                       </Tooltip>
-                     )}
-                     {!query.rpcUrl && <CircularProgress />}
-                   </>
-                 )}
-              <span style={{margin: "5px"}}>
+              <div style={{ margin: '10px' }}>
+              <MenuListComposition2 />
+              </div>
 
+              <div style={{ margin: '10px' }}>
+              <MenuListComposition />
+              </div>
+
+
+              <div style={{ margin: '10px' }}>
               <Button
                 color="secondary"
                 variant="outlined"
                 href="https://novanetwork.io/verified-contracts"
                 target="_blank"
+                style={{ borderRadius: "10px" }}
               >Tokens</Button>
-              </span>
+              </div>
+
+              <Tooltip title={t("Nova Network Website") as string}>
+                <IconButton
+                  onClick={() =>
+                  window.open("https://novanetwork.io/")
+                    }
+                  >
+                  <Public />
+                </IconButton>
+              </Tooltip>
+
               <Tooltip title={t("Toggle Dark Mode") as string}>
                 <IconButton onClick={darkMode.toggle}>
                   {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
                 </IconButton>
               </Tooltip>
-              <Tooltip title={t("Nova Network Website") as string}>
-                                <IconButton
-                                  onClick={() =>
-                                    window.open("https://novanetwork.io/")
-                                  }
-                                >
-                                  <Public />
-                                </IconButton>
-                              </Tooltip>
 
-              {/* }<Button
+              {/* <Button
                 color="secondary"
                 variant="outlined"
                 onClick={addNovaMainnet}
               >MetaMask</Button> */}
 
-              </div>
             </Grid>
           </Toolbar>
         </AppBar>
-        <AddChain
-          open={addChainDialogIsOpen}
-          onCancel={cancelAddChainDialog}
-          onSubmit={submitAddChainDialog}
-        />
+
         <div style={{ margin: "0px 25px 0px 25px" }}>
           <QueryParamProvider ReactRouterRoute={Route}>
             <CssBaseline />
