@@ -41,22 +41,26 @@ const MinerStatsTable: React.FC<IProps> = ({ blocks }) => {
   const topMiners = blockTopMiners(blocks);
   const groupedMiners = Object.assign({}, ...groupByMiner(blocks));
   return (
-    <Table aria-label="simple table">
-      <TableHead >
+    <Table aria-label="simple table" style={{
+      border: "0px solid",
+      borderRadius: "30px",
+      padding: "10px",
+      maxWidth: "90%",
+      margin: "auto"
+    }}>
+      <TableHead>
         <TableRow>
-          <TableCell>Blocks Mined</TableCell>
-          <TableCell>Address</TableCell>
-          <TableCell>ExtraData</TableCell>
+          <TableCell>Blocks</TableCell>
+          <TableCell>Validator</TableCell>
           <TableCell>Blocks</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {topMiners.map((minerData: any) => (
-          <TableRow key={minerData.miner}>
+          <TableRow key={minerData.miner} >
             <TableCell component="th" scope="row">
               {minerData.blocksMined}
             </TableCell>
-            <TableCell>{minerData.address}</TableCell>
             <TableCell colSpan={2}>
               <Table>
                 <TableBody>
@@ -90,7 +94,9 @@ const MinerStatsTable: React.FC<IProps> = ({ blocks }) => {
           </TableRow>
         ))}
       </TableBody>
+
     </Table >
+
   );
 };
 

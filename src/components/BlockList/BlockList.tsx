@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const rightPaddingFix = {
   paddingRight: "24px",
+  border: "0px",
 };
 
 function BlockList({ blocks }: any) {
@@ -18,18 +19,24 @@ function BlockList({ blocks }: any) {
     return b.number - a.number;
   });
   return (
-    <div style={{ width: "85%", overflowX: "auto", margin: "auto" }}>
+    <div style={{
+      width: "100%",
+      overflowX: "auto",
+      margin: "auto",
+      border: "1px solid #c0c0c0",
+      borderRadius: "10px",
+      padding: "5px",
+      }}
+      >
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell><Typography>{t("Author")}</Typography></TableCell>
-            <TableCell><Typography>{t("Block Number")}</Typography></TableCell>
-            <TableCell><Typography>{t("Timestamp")}</Typography></TableCell>
-            <TableCell><Typography>{t("#Txs")}</Typography></TableCell>
-            <TableCell><Typography>{t("Gas Usage")}</Typography></TableCell>
-            <TableCell><Typography>{t("Gas Limit")}</Typography></TableCell>
-            <TableCell><Typography>{t("Uncles")}</Typography></TableCell>
-            <TableCell><Typography>{t("Hash")}</Typography></TableCell>
+            <TableCell><Typography style={{fontWeight: "bold"}}>{t("Validator")}</Typography></TableCell>
+            <TableCell><Typography style={{fontWeight: "bold"}}>{t("Block")}</Typography></TableCell>
+            <TableCell><Typography style={{fontWeight: "bold"}}>{t("Timestamp")}</Typography></TableCell>
+            <TableCell><Typography style={{fontWeight: "bold"}}>{t("#Txns")}</Typography></TableCell>
+            <TableCell><Typography style={{fontWeight: "bold"}}>{t("Gas Used")}</Typography></TableCell>
+            <TableCell><Typography style={{fontWeight: "bold"}}>{t("Gas Limit")}</Typography></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -45,6 +52,7 @@ function BlockList({ blocks }: any) {
             // Colorize left border derived from author credit account.
             const authorHashStyle = {
               borderLeft: `1em solid #${b.miner.substring(2, 8)}`,
+              border: "0px",
             };
 
             // Tally transactions which create contracts vs transactions with addresses.
@@ -73,6 +81,7 @@ function BlockList({ blocks }: any) {
 
             return (
               <TableRow key={b.number} style={authorHashStyle}>
+
                 <TableCell style={rightPaddingFix}>
                   <Typography>
                     <Link
@@ -81,12 +90,13 @@ function BlockList({ blocks }: any) {
                           {children}
                         </RouterLink>
                       )}>
-                      {authorHashShort}
+                      <span style={{marginLeft: "5px"}}>{authorHashShort}</span>
                     </Link>
                     &nbsp;<sup>{hexToString(b.extraData).substring(0, 20)}</sup>
                   </Typography>
                 </TableCell>
-                <TableCell component="th" scope="row">
+
+                <TableCell component="th" scope="row" style={rightPaddingFix}>
                   <Link
                     component={({ className, children }: { children: any, className: string }) => (
                       <RouterLink className={className} to={`/block/${b.hash}`} >
@@ -96,12 +106,14 @@ function BlockList({ blocks }: any) {
                     {parseInt(b.number, 16)}
                   </Link>
                 </TableCell>
+
                 <TableCell style={rightPaddingFix}>
                   <Typography>{t("Timestamp Date", { date: hexToDate(b.timestamp) })}
                     &nbsp;
                     <sub>({tdfp > 0 ? `+${tdfp}` : `-${tdfp}`}s)</sub>
                   </Typography>
                 </TableCell>
+
                 <TableCell style={rightPaddingFix}>
                   <Tooltip
                     title={t("Create Transactions", {count: txTypes.create}) as string}
@@ -113,25 +125,15 @@ function BlockList({ blocks }: any) {
                   </Tooltip>
                   <Typography>{txTypes.transact}</Typography>
                 </TableCell>
+
                 <TableCell style={rightPaddingFix}>
                   <LinearProgress value={filledPercent} variant="determinate" />
                 </TableCell>
-                <TableCell>
+
+                <TableCell style={rightPaddingFix}>
                   <Typography>{hexToNumber(b.gasLimit)}</Typography>
                 </TableCell>
-                <TableCell>
-                  <Typography>{b.uncles.length === 0 ? "" : b.uncles.length}</Typography>
-                </TableCell>
-                <TableCell style={rightPaddingFix}>
-                  <Link
-                    component={({ className, children }: { children: any, className: string }) => (
-                      <RouterLink className={className} to={`/block/${b.hash}`} >
-                        {children}
-                      </RouterLink>
-                    )}>
-                    {blockHashShort}
-                  </Link>
-                </TableCell>
+
               </TableRow>
             );
           })}

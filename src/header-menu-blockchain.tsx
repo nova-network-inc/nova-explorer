@@ -66,9 +66,10 @@ export default function MenuListComposition2() {
           onClick={handleToggle}
           style={{
             fontWeight: "bold",
+            borderRadius: "10px",
           }}
         >
-          Blockchain <KeyboardArrowDownIcon />
+          Network <KeyboardArrowDownIcon />
         </Button>
 
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
@@ -84,7 +85,7 @@ export default function MenuListComposition2() {
 
                   <MenuItem
                     onClick={() =>
-                    window.open("https://novanetwork.io/verified-contracts")
+                    window.open("https://novanetwork.io/top-tokens")
                       }
                     style={{ fontSize: "10pt" }}
                     >Top ERC-20 Tokens
@@ -92,7 +93,7 @@ export default function MenuListComposition2() {
 
                   <MenuItem
                     onClick={() =>
-                    window.open("https://novanetwork.io/verified-contracts")
+                    window.open("https://novanetwork.io/top-nfts")
                       }
                     style={{ fontSize: "10pt" }}
                     >Top NFT Contracts
@@ -100,10 +101,10 @@ export default function MenuListComposition2() {
 
                   <MenuItem
                     onClick={() =>
-                    window.open("/stats/miners", "_self")
+                    window.open("/stats/validators", "_self")
                       }
                     style={{ fontSize: "10pt" }}
-                    >Validators' Stats
+                    >Network Stats
                   </MenuItem>
 
                   </MenuList>

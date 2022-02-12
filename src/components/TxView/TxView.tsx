@@ -5,6 +5,8 @@ import { Table, TableBody, TableCell, TableRow, Typography, Button } from "@mate
 import { hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
 
 const unit = require("ethjs-unit"); //tslint:disable-line
 
@@ -22,14 +24,24 @@ function TxView(props: ITxViewProps) {
   }
 
   return (
-    <div>
+    <div style={{
+      width: "100%",
+      overflowX: "auto",
+      margin: "20px auto 20px auto",
+      border: "1px solid #c0c0c0",
+      borderRadius: "10px",
+      padding: "15px",
+      maxWidth: "1280px"
+      }}>
       <Button
         onClick={() => {
           history.push(`/tx/${tx.hash}/raw`);
         }}
-        style={{ position: "absolute", right: "10px", top: "75px" }}
-      >View Raw</Button>
-      <Typography variant="h6">Transaction</Typography>
+        color="secondary"
+        variant="outlined"
+        style={{ position: "relative", borderRadius: "10px", marginBottom: "10px" }}
+      >View Raw Transaction</Button>
+      <Typography variant="h6"><SwapHorizIcon style={{marginBottom: "-5px"}} /> Transaction Information</Typography>
       <Table>
         <TableBody>
           <TableRow>
@@ -135,7 +147,7 @@ function TxView(props: ITxViewProps) {
       </Table>
 
       <br />
-      <Typography variant="h6">Receipt</Typography>
+      <Typography variant="h6"><ReceiptIcon style={{marginBottom: "-5px"}} /> Receipt</Typography>
       {receipt &&
         <Table>
           <TableBody>

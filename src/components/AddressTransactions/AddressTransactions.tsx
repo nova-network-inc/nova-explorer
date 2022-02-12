@@ -19,7 +19,15 @@ export interface IProps {
 const AddressTransactions: React.FC<IProps> = (props) => {
   const { t } = useTranslation();
   return (
-    <div style={props.style}>
+    <div style={{
+      width: "100%",
+      overflowX: "auto",
+      margin: "20px auto 20px auto",
+      border: "1px solid #c0c0c0",
+      borderRadius: "10px",
+      padding: "15px",
+      maxWidth: "1280px"
+      }}>
       <Grid container justify="flex-end">
         <IconButton onClick={props.onPrev} disabled={props.disablePrev}>
           <ArrowBackIos />

@@ -52,9 +52,9 @@ const MinerStats: React.FC<IProps> = ({blocks}) => {
   const { t } = useTranslation();
 
   return (
-    <Grid container justify="space-evenly">
+    <Grid container justify="space-evenly" alignItems="center">
       <Grid key="uncles" item xs={12} md={4} lg={4}>
-        <ChartCard title={t("Miners by address")}>
+        <div style={{ margin: "auto", textAlign: "center" }}><ChartCard title={t("Validators by Coinbase")}>
           <VictoryPie
             cornerRadius={1}
             // innerRadius={50}
@@ -80,15 +80,17 @@ const MinerStats: React.FC<IProps> = ({blocks}) => {
           >
           </VictoryPie>
         </ChartCard>
+        </div>
       </Grid>
       <Grid key="uncles" item xs={12} md={3} lg={3}>
-        <ChartCard title={t("Miners by extraData", { count: config.blockHistoryLength })}>
+        <div style={{ margin: "auto", textAlign: "center" }}><ChartCard title={t("Validators by Name", { count: config.blockHistoryLength })}>
           <VictoryPie
             colorScale="cool"
             labelComponent={<CustomPieChartLabel />}
             data={blockTopMinerCount(blocks)}
           />
         </ChartCard>
+        </div>
       </Grid>
     </Grid>
   );

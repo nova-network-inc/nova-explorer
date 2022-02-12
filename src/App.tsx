@@ -278,18 +278,28 @@ function App(props: any) {
     <Router history={history}>
       <ThemeProvider theme={theme}>
 
-        <AppBar position="sticky" color="inherit" elevation={0} style={{ borderBottom: "1px solid #c0c0c0" }}>
+        <AppBar position="sticky" color="inherit" elevation={0} style={{ borderBottom: "1px solid #c0c0c0", padding: "10px" }}>
 
-          <Toolbar style={{margin: "auto"}}>
+          <Toolbar style={{
+            margin: "auto",
+            textAlign: "center",
+            alignContent: "center",
+            alignItems: "center",
+            padding: "10px",
+            width: "100%",
+            maxWidth: "1280px"
+          }}>
+
+          {/* Start of grid 1 */}
 
             <Grid
-              justify="space-between"
               alignItems="center"
-              alignContent="flex-start"
+              alignContent="center"
+              style={{ margin: "0px", maxWidth: "100%"}}
               container
             >
 
-              <Grid item alignContent="flex-start" justify="flex-start" style={{ margin: "auto" }}>
+              <Grid item alignContent="center" style={{ margin: "auto", padding: "5px" }}>
                 <Link
                   component={({
                     className,
@@ -303,17 +313,17 @@ function App(props: any) {
                     </RouterLink>
                   )}
                 >
-                  <Grid container>
+                  <Grid container alignContent="center" style={{ margin: "auto" }}>
                     <Grid>
                       <img
                         alt="expedition-logo"
                         height="38"
-                        style={{ marginRight: "10px" }}
+                        style={{ marginRight: "auto" }}
                         src={expeditionLogo}
                       />
                     </Grid>
 
-                    <div className="text-center mx-auto" style={{justifyContent: "space-between", textAlign: "center", marginRight: "10px", marginLeft: "10px"}}>
+                    <div className="text-center mx-auto" style={{}}>
                     {selectedChain ? (
                          <ChainDropdown
                            chains={chains}
@@ -337,7 +347,9 @@ function App(props: any) {
                 </Link>
               </Grid>
 
-              <Grid item style={{margin: "20px"}}>
+              {/* End of grid one */}
+
+              <Grid item style={{ margin: "auto" }}>
                 <InputBase
                   placeholder={t(
                     "Search by Address, Txn Hash, Block..."
@@ -368,40 +380,45 @@ function App(props: any) {
                 />
               </Grid>
 
-              <div style={{ margin: '10px' }}>
+              <div style={{ margin: '5px' }}>
               <MenuListComposition2 />
               </div>
 
-              <div style={{ margin: '10px' }}>
+
+              <div style={{ margin: '5px' }}>
               <MenuListComposition />
               </div>
 
+                {/* <div style={{ margin: '10px' }}>
+                 <Button
+                  color="secondary"
+                  variant="outlined"
+                  href="https://novanetwork.io/verified-contracts"
+                  target="_blank"
+                  style={{ borderRadius: "10px" }}
+                  >Tokens</Button>
+                </div> */}
 
-              <div style={{ margin: '10px' }}>
-              <Button
-                color="secondary"
-                variant="outlined"
-                href="https://novanetwork.io/verified-contracts"
-                target="_blank"
-                style={{ borderRadius: "10px" }}
-              >Tokens</Button>
-              </div>
+                <div style={{ margin: '5px' }}>
+                  <Tooltip title={t("Nova Network Website") as string}>
+                    <IconButton
+                      size="small"
+                      onClick={() =>
+                      window.open("https://novanetwork.io/")
+                        }
+                      >
+                      <Public />
+                    </IconButton>
+                  </Tooltip>
+                </div>
 
-              <Tooltip title={t("Nova Network Website") as string}>
-                <IconButton
-                  onClick={() =>
-                  window.open("https://novanetwork.io/")
-                    }
-                  >
-                  <Public />
-                </IconButton>
-              </Tooltip>
-
-              <Tooltip title={t("Toggle Dark Mode") as string}>
-                <IconButton onClick={darkMode.toggle}>
-                  {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
-                </IconButton>
-              </Tooltip>
+                <div style={{ margin: '5px' }}>
+                <Tooltip title={t("Toggle Dark Mode") as string}>
+                  <IconButton onClick={darkMode.toggle} size="small">
+                    {darkMode.value ? <Brightness3Icon /> : <WbSunnyIcon />}
+                  </IconButton>
+                </Tooltip>
+                </div>
 
               {/* <Button
                 color="secondary"
@@ -409,9 +426,11 @@ function App(props: any) {
                 onClick={addNovaMainnet}
               >MetaMask</Button> */}
 
+
             </Grid>
           </Toolbar>
         </AppBar>
+
 
         <div style={{ margin: "0px 25px 0px 25px" }}>
           <QueryParamProvider ReactRouterRoute={Route}>
@@ -419,11 +438,11 @@ function App(props: any) {
             <Switch>
               <Route path={"/"} component={Dashboard} exact={true} />
               <Route
-                path={"/stats/miners"}
+                path={"/stats/validators"}
                 component={MinerStatsPage}
                 exact={true}
               />
-              <Route path={"/stats/miners/:block"} component={MinerStatsPage} />
+              <Route path={"/stats/validators/:block"} component={MinerStatsPage} />
               <Route path={"/block/:hash/raw"} component={BlockRawContainer} />
               <Route path={"/block/:hash"} component={Block} />
               <Route path={"/blocks/:number"} component={NodeView} />
@@ -434,6 +453,8 @@ function App(props: any) {
               <Route path={"/tx/:hash"} component={Transaction} />
               <Route path={"/address/:address/:block"} component={Address} />
               <Route path={"/address/:address"} component={Address} />
+              <Route path={"/contract/:address"} component={Address} />
+              <Route path={"/token/:address"} component={Address} />
             </Switch>
           </QueryParamProvider>
         </div>

@@ -66,9 +66,10 @@ export default function MenuListComposition() {
           onClick={handleToggle}
           style={{
             fontWeight: "bold",
+            borderRadius: "10px",
           }}
         >
-          Resources <KeyboardArrowDownIcon />
+          More Info <KeyboardArrowDownIcon />
         </Button>
 
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>

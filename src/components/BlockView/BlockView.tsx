@@ -5,6 +5,8 @@ import TxList from "../TxList";
 import { hexToDate, hexToString, hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import RepeatIcon from '@material-ui/icons/Repeat';
 
 import { Table, TableBody, TableCell, TableRow, Button, LinearProgress, Typography } from "@material-ui/core";
 
@@ -30,14 +32,16 @@ function BlockView(props: any) {
   return (
 
     <div style={{
-      width: "95%",
-      margin: "30px auto 30px auto",
-      border: "1px solid #C0C0C0",
-      borderRadius: "20px",
-      padding: "20px",
-    }}>
+      width: "100%",
+      overflowX: "auto",
+      margin: "20px auto 20px auto",
+      border: "1px solid #c0c0c0",
+      borderRadius: "10px",
+      padding: "15px",
+      maxWidth: "1280px"
+      }}>
 
-    <h2 style={{textAlign: "left" }}>🔎 Exploring Block {hexToNumber(block.number)}</h2>
+    <h2 style={{textAlign: "left" }}><RepeatIcon style={{marginBottom: "-5px"}} /> Exploring Block {hexToNumber(block.number)}</h2>
       <Table>
         <TableBody>
           <TableRow>
@@ -142,7 +146,7 @@ function BlockView(props: any) {
           </TableRow>
         </TableBody>
       </Table>
-      <h3>📃 Transactions Processed</h3>
+      <h3><ReceiptIcon style={{marginBottom: "-5px"}} /> Transactions Processed</h3>
       <TxList transactions={transactions} />
 
     </div>

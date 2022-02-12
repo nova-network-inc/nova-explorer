@@ -89,60 +89,56 @@ export default (props: any) => {
   return (
     <div style={{marginTop: "20px"}}>
       <Grid container spacing={3} direction="column" style={{
-          width: "80%",
+          width: "100%",
+          maxWidth: "1280px",
           margin: "30px auto 30px auto",
-          border: "1px solid #C0C0C0",
-          borderRadius: "20px",
+          border: "0px",
+          borderRadius: "10px",
           padding: "20px",
       }}>
         <Grid item container justify="center">
 
         {/* Element, Native Token */}
 
-        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
           <p>Native Coin</p>
           <p style={{fontSize: "14pt"}}>Nebula (NBX)</p>
-          </div>
+        </div>
 
         {/* Element, Network Status */}
 
-        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
           <p>Network Status</p>
           <p style={{fontSize: "14pt"}}>Operational</p>
-          </div>
+        </div>
 
         {/* Element, Latest Block */}
 
-        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
           <p>Latest Block</p>
           <p style={{fontSize: "14pt"}}>{blockNumber}</p>
+        </div>
+
+          {/* Left Chain ID out of the dashboard. Can be re-implemented by simply uncommenting it. */}
+
+          <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
+            <p>Chain ID</p>
+            <p style={{fontSize: "14pt"}}>{hexToNumber(chainId)}</p>
           </div>
 
-          {/* Left Chain ID out of the dashboard. Can be re-implemented by simply uncommenting it.
-
-          <Grid key="chainId" item>
-            <ChartCard title={t("Chain ID")}>
-              <Typography variant="h4">{hexToNumber(chainId)}</Typography>
-            </ChartCard>
-          </Grid>
-          */}
-
           {syncing &&
-            <div key="syncing">
-              <ChartCard title={t("Syncing")}>
+            <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
+              <p>Syncing</p>
                 {typeof syncing === "object" && syncing.currentBlock &&
-                  <Typography variant="h5">
-                    {hexToNumber(syncing.currentBlock)} / {hexToNumber(syncing.highestBlock || "0x0")}
-                  </Typography>
+              <p style={{fontSize: "14pt"}}>{hexToNumber(syncing.currentBlock)} / {hexToNumber(syncing.highestBlock || "0x0")}</p>
                 }
-              </ChartCard>
             </div>
           }
 
-          <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt"}}>
+          <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
             <p>Gas Price</p>
             <p style={{fontSize: "14pt"}}>{weiToGwei(hexToNumber(gasPrice))} Gwei</p>
-            </div>
+          </div>
 
           {/* :: Left the hash rate off the dashboard. Can be re-implemented by simply uncommenting it.
 
@@ -194,11 +190,9 @@ export default (props: any) => {
           props.history.push(`/blocks/${blockNumber - 15}`);
         }}
         style={{
-            width: "80%",
-            margin: "30px auto 30px auto",
-            border: "1px solid #C0C0C0",
-            borderRadius: "20px",
-            padding: "30px",
+            width: "100%",
+            maxWidth: "1280px",
+            margin: "auto",
         }} />
 
         <div style={{ marginTop: "40px", marginBottom: "40px", textAlign: "center", lineHeight: ".5" }}>

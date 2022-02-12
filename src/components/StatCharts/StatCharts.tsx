@@ -76,13 +76,13 @@ const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
         </ChartCard>
       </Grid>
 
-      {/* <Grid key="uncles" item xs={12} md={6} lg={3}>
-        <ChartCard title={t("Uncles")}>
+      <Grid key="uncles" item xs={12} md={6} lg={3}>
+        <ChartCard title={t("Uncle Blocks")}>
           <VictoryChart height={config.chartHeight} width={config.chartWidth} theme={victoryTheme as any}>
             <VictoryBar data={blocks.map(blockMapUncles)} />
           </VictoryChart>
         </ChartCard>
-      </Grid> */}
+      </Grid>
 
     </Grid>
   );
