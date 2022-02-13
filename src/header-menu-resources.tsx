@@ -69,7 +69,7 @@ export default function MenuListComposition() {
             borderRadius: "10px",
           }}
         >
-          More Info <KeyboardArrowDownIcon />
+          Resources <KeyboardArrowDownIcon />
         </Button>
 
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
@@ -83,7 +83,7 @@ export default function MenuListComposition() {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
-                    <MenuItem
+                    {/* <MenuItem
                       onClick={() =>
                       window.open("https://novanetwork.io/verified-contracts")
                         }
@@ -97,7 +97,7 @@ export default function MenuListComposition() {
                         }
                       style={{ fontSize: "10pt" }}
                       >List of Projects
-                    </MenuItem>
+                    </MenuItem> */}
 
                     <MenuItem
                       onClick={() =>

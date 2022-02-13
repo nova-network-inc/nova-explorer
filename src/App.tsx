@@ -93,8 +93,8 @@ function App(props: any) {
           symbol: 'NBX',
           decimals: 18
         },
-        rpcUrls: ['http://nova.genyrpc.info:8545/'],
-        blockExplorerUrls: ['http://explorer.novanetwork.io/']
+        rpcUrls: ['https://rpc.novanetwork.io:9070/'],
+        blockExplorerUrls: ['https://explorer.novanetwork.io/']
       }
     ])
 
@@ -371,21 +371,21 @@ function App(props: any) {
                     borderRadius: "10px",
                     border: "1px solid #c0c0c0",
                     padding: "10px 15px 10px 15px",
-                    marginRight: "5px",
+                    margin: "7px auto 7px auto",
                     fontSize: "10pt",
                     fontWeight: "normal",
-                    width: "340px",
-                    maxWidth: "80%",
+                    minWidth: "300px",
+                    maxWidth: "100vh",
                   }}
                 />
               </Grid>
 
-              <div style={{ margin: '5px' }}>
+              <div style={{ margin: '10px' }}>
               <MenuListComposition2 />
               </div>
 
 
-              <div style={{ margin: '5px' }}>
+              <div style={{ margin: '10px' }}>
               <MenuListComposition />
               </div>
 
@@ -397,7 +397,7 @@ function App(props: any) {
                   target="_blank"
                   style={{ borderRadius: "10px" }}
                   >Tokens</Button>
-                </div> */}
+                </div>
 
                 <div style={{ margin: '5px' }}>
                   <Tooltip title={t("Nova Network Website") as string}>
@@ -410,7 +410,7 @@ function App(props: any) {
                       <Public />
                     </IconButton>
                   </Tooltip>
-                </div>
+                </div> */}
 
                 <div style={{ margin: '5px' }}>
                 <Tooltip title={t("Toggle Dark Mode") as string}>

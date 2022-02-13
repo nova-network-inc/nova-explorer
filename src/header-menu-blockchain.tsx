@@ -83,7 +83,7 @@ export default function MenuListComposition2() {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
-                  <MenuItem
+                  {/* <MenuItem
                     onClick={() =>
                     window.open("https://novanetwork.io/top-tokens")
                       }
@@ -97,14 +97,14 @@ export default function MenuListComposition2() {
                       }
                     style={{ fontSize: "10pt" }}
                     >Top NFT Contracts
-                  </MenuItem>
+                  </MenuItem> */}
 
                   <MenuItem
                     onClick={() =>
                     window.open("/stats/validators", "_self")
                       }
                     style={{ fontSize: "10pt" }}
-                    >Network Stats
+                    >Network Analytics
                   </MenuItem>
 
                   </MenuList>

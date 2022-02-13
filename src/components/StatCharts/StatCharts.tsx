@@ -8,7 +8,7 @@ import { VictoryLine, VictoryBar, VictoryChart } from "victory";
 import { useTranslation } from "react-i18next";
 
 const config = {
-  blockTime: 15, // seconds
+  blockTime: 1, // seconds
   blockHistoryLength: 100,
   chartHeight: 200,
   chartWidth: 400,
