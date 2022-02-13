@@ -10,12 +10,12 @@ export default function() {
 {
       name: "Nova Network",
       network: "Mainnet",
-      rpc: ["http://nova.genyrpc.info:8545/"],
+      rpc: ["https://rpc.novanetwork.io:9070/"],
     },
     {
           name: "Nebula Testnet",
           network: "Testnet",
-          rpc: ["http://testnet.rpc.novanetwork.io:8545/"],
+          rpc: ["https://testnet.rpc.novanetwork.io:9070/"],
         },
   ]);
 
