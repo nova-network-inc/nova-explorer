@@ -98,18 +98,18 @@ export default (props: any) => {
       }}>
         <Grid item container justify="center">
 
-        {/* Element, Native Token */}
-
-        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-          <p>Native Coin</p>
-          <p style={{fontSize: "14pt"}}>Nebula (NBX)</p>
-        </div>
-
         {/* Element, Network Status */}
 
         <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
           <p>Network Status</p>
           <p style={{fontSize: "14pt"}}>Operational</p>
+        </div>
+
+        {/* Element, Native Token */}
+
+        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
+          <p>Active Nodes</p>
+          <p style={{fontSize: "14pt"}}>6</p>
         </div>
 
         {/* Element, Latest Block */}
@@ -135,9 +135,9 @@ export default (props: any) => {
             </div>
           }
 
-          <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
+            <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
             <p>Gas Price</p>
-            <p style={{fontSize: "14pt"}}>{weiToGwei(hexToNumber(gasPrice))} Gwei</p>
+            <p style={{fontSize: "14pt"}}>{weiToGwei(hexToNumber(gasPrice)).toFixed(1)} Gwei</p>
           </div>
 
           {/* :: Left the hash rate off the dashboard. Can be re-implemented by simply uncommenting it.

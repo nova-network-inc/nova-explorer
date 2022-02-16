@@ -101,7 +101,7 @@ export default function MenuListComposition() {
 
                     <MenuItem
                       onClick={() =>
-                      window.open("http://faucet.novanetwork.io/")
+                      window.open("https://faucet.novanetwork.io/")
                         }
                       style={{ fontSize: "10pt" }}
                       >Testnet Faucet
@@ -109,7 +109,7 @@ export default function MenuListComposition() {
 
                     <MenuItem
                       onClick={() =>
-                      window.open("https://docs.novafinance.me/nova-network/wallet-setup")
+                      window.open("https://docs.novanetwork.io/getting-started/wallet-setup")
                         }
                       style={{ fontSize: "10pt" }}
                       >Wallet Setup
@@ -117,7 +117,7 @@ export default function MenuListComposition() {
 
                     <MenuItem
                       onClick={() =>
-                      window.open("https://docs.novafinance.me/nova-network/introduction")
+                      window.open("https://docs.novanetwork.io/")
                         }
                       style={{ fontSize: "10pt" }}
                       >Documentation

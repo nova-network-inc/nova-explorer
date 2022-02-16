@@ -57,6 +57,8 @@ import { NetworkWifi } from "@material-ui/icons";
 import { Public } from "@material-ui/icons";
 import MenuListComposition from "./header-menu-resources"
 import MenuListComposition2 from "./header-menu-blockchain"
+import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 
 const history = createPreserveQueryHistory(createBrowserHistory, [
@@ -86,11 +88,11 @@ function App(props: any) {
     const addNovaMainnet = () =>
     addNetwork([
       {
-        chainId: '0x57',
+        chainId: '87',
         chainName: 'Nova Network',
         nativeCurrency: {
-          name: 'Nebula X',
-          symbol: 'NBX',
+          name: 'Supernova',
+          symbol: 'SNT',
           decimals: 18
         },
         rpcUrls: ['https://rpc.novanetwork.io:9070/'],
@@ -370,8 +372,8 @@ function App(props: any) {
                     background: "rgba(0,0,0,0.1)",
                     borderRadius: "10px",
                     border: "1px solid #c0c0c0",
-                    padding: "10px 15px 10px 15px",
-                    margin: "7px auto 7px auto",
+                    padding: "5px 10px 3px 10px",
+                    margin: "5px auto 5px auto",
                     fontSize: "10pt",
                     fontWeight: "normal",
                     minWidth: "300px",
@@ -380,9 +382,9 @@ function App(props: any) {
                 />
               </Grid>
 
-              <div style={{ margin: '10px' }}>
+              {/* <div style={{ margin: '10px' }}>
               <MenuListComposition2 />
-              </div>
+              </div> */}
 
 
               <div style={{ margin: '10px' }}>
@@ -397,10 +399,10 @@ function App(props: any) {
                   target="_blank"
                   style={{ borderRadius: "10px" }}
                   >Tokens</Button>
-                </div>
+                </div> */}
 
                 <div style={{ margin: '5px' }}>
-                  <Tooltip title={t("Nova Network Website") as string}>
+                  <Tooltip title={t("Official Website") as string}>
                     <IconButton
                       size="small"
                       onClick={() =>
@@ -410,7 +412,33 @@ function App(props: any) {
                       <Public />
                     </IconButton>
                   </Tooltip>
-                </div> */}
+                </div>
+
+                <div style={{ margin: '5px' }}>
+                  <Tooltip title={t("Official Twitter") as string}>
+                    <IconButton
+                      size="small"
+                      onClick={() =>
+                      window.open("https://twitter.com/NovaFinOfficial")
+                        }
+                      >
+                      <TwitterIcon />
+                    </IconButton>
+                  </Tooltip>
+                </div>
+
+                <div style={{ margin: '5px' }}>
+                  <Tooltip title={t("Github") as string}>
+                    <IconButton
+                      size="small"
+                      onClick={() =>
+                      window.open("https://github.com/nova-network-inc/nova-explorer")
+                        }
+                      >
+                      <GitHubIcon />
+                    </IconButton>
+                  </Tooltip>
+                </div>
 
                 <div style={{ margin: '5px' }}>
                 <Tooltip title={t("Toggle Dark Mode") as string}>
