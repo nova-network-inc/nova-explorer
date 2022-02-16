@@ -37,7 +37,7 @@ function AddressView(props: IAddressViewProps) {
         lineHeight: "1.5",
         }}>
         <div style={{fontSize: "12pt", fontWeight: "bold"}}>Blockchain Address: <span style={{fontWeight: "normal"}}>{address}</span></div>
-        <div style={{fontSize: "12pt", fontWeight: "bold"}}>Balance: <span style={{fontWeight: "normal"}}>{balance} NBX</span></div>
+        <div style={{fontSize: "12pt", fontWeight: "bold"}}>Balance: <span style={{fontWeight: "normal"}}>{balance} SNT</span></div>
         <div style={{fontSize: "12pt", fontWeight: "bold"}}>Total Transactions: <span style={{fontWeight: "normal"}}>{txCount}</span></div>
         <div>
           <div style={{fontSize: "12pt", fontWeight: "bold"}}>Smart Contract Code:</div>
