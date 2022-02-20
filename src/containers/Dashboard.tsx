@@ -108,8 +108,8 @@ export default (props: any) => {
         {/* Element, Native Token */}
 
         <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-          <p>Active Nodes</p>
-          <p style={{fontSize: "14pt"}}>6</p>
+          <p>Active DLNs</p>
+          <p style={{fontSize: "14pt"}}>8</p>
         </div>
 
         {/* Element, Latest Block */}
