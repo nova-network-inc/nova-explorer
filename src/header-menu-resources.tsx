@@ -83,7 +83,7 @@ export default function MenuListComposition() {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
-                    {/* <MenuItem
+                     <MenuItem
                       onClick={() =>
                       window.open("https://novanetwork.io/verified-contracts")
                         }
@@ -93,18 +93,10 @@ export default function MenuListComposition() {
 
                     <MenuItem
                       onClick={() =>
-                      window.open("https://novanetwork.io/projects")
+                      window.open("/stats/validators", "_self")
                         }
                       style={{ fontSize: "10pt" }}
-                      >List of Projects
-                    </MenuItem> */}
-
-                    <MenuItem
-                      onClick={() =>
-                      window.open("https://faucet.novanetwork.io/")
-                        }
-                      style={{ fontSize: "10pt" }}
-                      >Testnet Faucet
+                      >Block Analytics
                     </MenuItem>
 
                     <MenuItem
@@ -114,6 +106,22 @@ export default function MenuListComposition() {
                       style={{ fontSize: "10pt" }}
                       >Wallet Setup
                     </MenuItem>
+
+                    <MenuItem
+                      onClick={() =>
+                      window.open("https://docs.novanetwork.io/nova-network/nebula-testnet")
+                        }
+                      style={{ fontSize: "10pt" }}
+                      >Nebula Testnet
+                    </MenuItem>
+
+                    {/* <MenuItem
+                      onClick={() =>
+                      window.open("https://faucet.novanetwork.io/")
+                        }
+                      style={{ fontSize: "10pt" }}
+                      >Testnet Faucet
+                    </MenuItem> */}
 
                     <MenuItem
                       onClick={() =>
