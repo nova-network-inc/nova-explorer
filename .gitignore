@@ -7,3 +7,4 @@ dist
 /**/build
 .vscode
 services
+/src/hooks/useChainList.ts

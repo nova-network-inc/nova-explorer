@@ -148,7 +148,7 @@ export default (props: any) => {
 
         <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: ".7"}}>Chain ID</p>
         <p style={{fontSize: "24pt", fontWeight: "bold", lineHeight: ".7"}}>{hexToNumber(chainId)}
-        <span style={{fontSize: "8pt", fontWeight: "normal"}}>{chainId}</span>
+        <span style={{fontSize: "8pt", fontWeight: "normal"}}>&nbsp;{chainId}</span>
         </p>
         </div>
 
