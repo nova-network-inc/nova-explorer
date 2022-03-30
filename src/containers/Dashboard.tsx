@@ -1,4 +1,4 @@
-import { Grid, Typography, CircularProgress, Theme, Button } from "@material-ui/core";
+import { Grid, Typography, CircularProgress, Theme, Button, Tooltip, IconButton } from "@material-ui/core";
 import useEthRPCStore from "../stores/useEthRPCStore";
 import * as React from "react";
 import { weiToGwei } from "../components/formatters";
@@ -14,6 +14,9 @@ import { useTranslation } from "react-i18next";
 import { ArrowForwardIos } from "@material-ui/icons";
 import StatCharts from "../components/StatCharts";
 import { Block as IBlock, IsSyncingResult as ISyncing} from "@etclabscore/ethereum-json-rpc";
+import { Public } from "@material-ui/icons";
+import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useState = React.useState;
 
@@ -87,99 +90,112 @@ export default (props: any) => {
   }
 
   return (
-    <div style={{marginTop: "20px"}}>
+    <div style={{marginTop: "-20px"}}>
+
       <Grid container spacing={3} direction="column" style={{
           width: "100%",
           maxWidth: "1280px",
           margin: "30px auto 30px auto",
           border: "0px",
           borderRadius: "10px",
-          padding: "20px",
+          padding: "0px",
       }}>
-        <Grid item container justify="center">
+        <Grid item container justify="center" style={{maxWidth: "95vw"}}>
 
-        {/* Element, Network Status */}
+        <div style={{
+          background: "rgba(255,255,255,0.05)",
+          margin: "10px",
+          padding: "25px",
+          paddingTop: "25px",
+          lineHeight: ".05",
+          border: "1px solid rgba(0,0,0,0.05)",
+          borderRadius: "10px",
+          textAlign: "center",
+          minWidth: "15%",
+        }}>
 
-        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-          <p>Network Status</p>
-          <p style={{fontSize: "14pt"}}>Operational</p>
+        <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: ".7"}}>Validators</p>
+        <p style={{fontSize: "24pt", fontWeight: "bold", lineHeight: ".7"}}>14</p>
         </div>
 
-        {/* Element, Native Token */}
+        <div style={{
+          background: "rgba(255,255,255,0.05)",
+          margin: "10px",
+          padding: "25px",
+          paddingTop: "25px",
+          lineHeight: ".05",
+          border: "1px solid rgba(0,0,0,0.05)",
+          borderRadius: "10px",
+          textAlign: "center",
+          minWidth: "15%",
+        }}>
 
-        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-          <p>Active DLNs</p>
-          <p style={{fontSize: "14pt"}}>8</p>
+        <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: ".7"}}>Blocks</p>
+        <p style={{fontSize: "24pt", fontWeight: "bold", lineHeight: ".7"}}>{blockNumber}</p>
         </div>
 
-        {/* Element, Latest Block */}
+        <div style={{
+          background: "rgba(255,255,255,0.05)",
+          margin: "10px",
+          padding: "25px",
+          paddingTop: "25px",
+          lineHeight: ".05",
+          border: "1px solid rgba(0,0,0,0.05)",
+          borderRadius: "10px",
+          textAlign: "center",
+          minWidth: "15%",
+        }}>
 
-        <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-          <p>Latest Block</p>
-          <p style={{fontSize: "14pt"}}>{blockNumber}</p>
+        <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: ".7"}}>Chain ID</p>
+        <p style={{fontSize: "24pt", fontWeight: "bold", lineHeight: ".7"}}>{hexToNumber(chainId)}
+        <span style={{fontSize: "8pt", fontWeight: "normal"}}>{chainId}</span>
+        </p>
         </div>
 
-          {/* Left Chain ID out of the dashboard. Can be re-implemented by simply uncommenting it. */}
+        <div style={{
+          background: "rgba(255,255,255,0.05)",
+          margin: "10px",
+          padding: "25px",
+          paddingTop: "25px",
+          lineHeight: ".05",
+          border: "1px solid rgba(0,0,0,0.05)",
+          borderRadius: "10px",
+          textAlign: "center",
+          minWidth: "15%",
+        }}>
 
-          <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-            <p>Chain ID</p>
-            <p style={{fontSize: "14pt"}}>{hexToNumber(chainId)}</p>
-          </div>
+        <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: ".7"}}>Gas Price</p>
+        <p style={{fontSize: "24pt", fontWeight: "bold", lineHeight: ".7"}}>{weiToGwei(hexToNumber(gasPrice)).toFixed(1)}
+          <span style={{fontSize: "8pt", fontWeight: "normal"}}>&nbsp;GWEI</span>
+        </p>
+        </div>
 
-          {syncing &&
-            <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-              <p>Syncing</p>
-                {typeof syncing === "object" && syncing.currentBlock &&
-              <p style={{fontSize: "14pt"}}>{hexToNumber(syncing.currentBlock)} / {hexToNumber(syncing.highestBlock || "0x0")}</p>
-                }
-            </div>
-          }
+        {syncing &&
+          <div style={{
+            background: "rgba(255,255,255,0.05)",
+            margin: "10px",
+            padding: "25px",
+            paddingTop: "25px",
+            lineHeight: ".05",
+            border: "1px solid rgba(0,0,0,0.05)",
+            borderRadius: "10px",
+            textAlign: "center",
+            maxWidth: "50%",
+            minWidth: "15%",
+          }}>
 
-            <div style={{margin: "10px", padding: "10px", lineHeight: ".5", fontSize: "10pt", borderRight: "0px solid #c0c0c0", paddingRight: "30px", textAlign: "center"}}>
-            <p>Gas Price</p>
-            <p style={{fontSize: "14pt"}}>{weiToGwei(hexToNumber(gasPrice)).toFixed(1)} Gwei</p>
-          </div>
-
-          {/* :: Left the hash rate off the dashboard. Can be re-implemented by simply uncommenting it.
-
-            <Grid key="hRate" item>
-             <ChartCard title={t("Network Hash Rate")}>
-              {block &&
-                <HashRate block={block} blockTime={config.blockTime}>
-                  {(hashRate: any) => <Typography variant="h4">{hashRate} GH/s</Typography>}
-                </HashRate>
+            <p style={{fontSize: "12pt", fontWeight: "bold"}}>Syncing</p>
+              {typeof syncing === "object" && syncing.currentBlock &&
+            <p style={{fontSize: "24pt", fontWeight: "bold"}}>{hexToNumber(syncing.currentBlock)} / {hexToNumber(syncing.highestBlock || "0x0")}</p>
               }
-            </ChartCard>
-          </Grid>
-          */}
-
-          {/* :: Left the number of peers out of the dashboard. Can be re-implemented by simply uncommenting it.
-
-          <Grid key="peers" item>
-            <ChartCard title={t("Peers")}>
-              <Typography variant="h4">{hexToNumber(peerCount)}</Typography>
-            </ChartCard>
-          </Grid>
-          */}
+          </div>
+        }
 
         </Grid>
       </Grid>
+      <div style={{marginTop: "50px"}}>
       <StatCharts victoryTheme={victoryTheme} blocks={blocks} />
-      <Grid container justify="flex-end">
-
-
-      {/* Left the 'More Stats' button out of the dashboard. Can be re-implemented by simply uncommenting.
-
-        <Button
-          color="primary"
-          variant="outlined"
-          endIcon={<ArrowForwardIos />}
-          onClick={() => props.history.push("/stats/miners")}
-        >More Stats</Button>
-        */}
-
-      </Grid>
-
+      </div>
 
       <BlockListContainer
         from={Math.max(blockNumber - 14, 0)}
@@ -190,15 +206,80 @@ export default (props: any) => {
           props.history.push(`/blocks/${blockNumber - 15}`);
         }}
         style={{
-            width: "100%",
-            maxWidth: "1280px",
+            width: "1280px",
+            maxWidth: "90vw",
             margin: "auto",
+            padding: "20px",
+            background: "rgba(255,255,255,0.05)",
+            border: "1px solid rgba(0,0,0,0.05)",
+            borderRadius: "10px",
         }} />
 
-        <div style={{ marginTop: "40px", marginBottom: "40px", textAlign: "center", lineHeight: ".5" }}>
-        <p><b>Nova Explorer</b></p>
-        <p>Powered by Nova Network Inc.</p>
+  <div style={{
+    margin: "auto",
+    textAlign: "center",
+    alignItems: "center",
+    alignContent: "center",
+    marginTop: "10px",
+    maxWidth: "125px",
+  }}>
+
+    <Grid container alignItems="center" alignContent="center" style={{ margin: "auto", textAlign: "center" }}>
+
+      <Grid item>
+          <div style={{margin: "7px"}}>
+            <Tooltip title={t("Official Website") as string}>
+              <IconButton
+                size="small"
+                onClick={() =>
+                  window.open("https://novanetwork.io/")
+                    }
+                  >
+                  <Public />
+              </IconButton>
+          </Tooltip>
         </div>
-    </div >
+      </Grid>
+
+      <Grid item>
+        <div style={{margin: "7px"}}>
+          <Tooltip title={t("Official Twitter") as string}>
+            <IconButton
+              size="small"
+              onClick={() =>
+                window.open("https://twitter.com/NovaFinOfficial")
+                  }
+                >
+                <TwitterIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+        </Grid>
+
+        <Grid item>
+          <div style={{margin: "7px"}}>
+            <Tooltip title={t("Github") as string}>
+              <IconButton
+              size="small"
+              onClick={() =>
+                window.open("https://github.com/nova-network-inc/")
+                  }
+                >
+                <GitHubIcon />
+              </IconButton>
+            </Tooltip>
+          </div>
+        </Grid>
+
+      </Grid>
+    </div>
+
+    <div style={{ marginTop: "10px", marginBottom: "40px", textAlign: "center" }}>
+      <p style={{lineHeight: ".2"}}><b>Nova Network Block Explorer</b></p>
+      <p>©2022 Nova Network Inc.</p>
+      <br />
+    </div>
+  </div>
+
   );
 };

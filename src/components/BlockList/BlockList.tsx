@@ -20,11 +20,8 @@ function BlockList({ blocks }: any) {
   });
   return (
     <div style={{
-      width: "100%",
       overflowX: "auto",
       margin: "auto",
-      border: "1px solid #c0c0c0",
-      borderRadius: "10px",
       padding: "5px",
       }}
       >
@@ -45,8 +42,8 @@ function BlockList({ blocks }: any) {
 
             // Shorten hash views by concatenating first and last 4 chars.
             const blockHashShort = b.hash.substring(2, 6) +
-              "—" + b.hash.substring(b.hash.length - 5, b.hash.length - 1);
-            const authorHashShort = b.miner.substring(2, 6) + "—" +
+              "..." + b.hash.substring(b.hash.length - 5, b.hash.length - 1);
+            const authorHashShort = b.miner.substring(2, 6) + "..." +
               b.miner.substring(b.miner.length - 5, b.miner.length - 1);
 
             // Colorize left border derived from author credit account.
@@ -90,7 +87,7 @@ function BlockList({ blocks }: any) {
                           {children}
                         </RouterLink>
                       )}>
-                      <span style={{marginLeft: "5px"}}>{authorHashShort}</span>
+                      <span style={{margin: "auto", marginLeft: "5px", fontSize: "10pt", fontWeight: "bold"}}>{authorHashShort}</span>
                     </Link>
                     &nbsp;<sup>{hexToString(b.extraData).substring(0, 20)}</sup>
                   </Typography>

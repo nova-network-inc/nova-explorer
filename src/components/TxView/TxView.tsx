@@ -24,14 +24,19 @@ function TxView(props: ITxViewProps) {
   }
 
   return (
+    <div style={{marginTop: "auto"}}>
+
+    <h2 style={{textAlign: "center", margin: "20px"}}>Transaction Details</h2>
+
     <div style={{
-      width: "100%",
+      width: "1280px",
+      maxWidth: "90vw",
+      background: "rgba(255,255,255,0.05)",
       overflowX: "auto",
       margin: "20px auto 20px auto",
-      border: "1px solid #c0c0c0",
+      border: "1px solid rgba(0,0,0,0.05)",
       borderRadius: "10px",
       padding: "15px",
-      maxWidth: "1280px"
       }}>
       <Button
         onClick={() => {
@@ -39,9 +44,10 @@ function TxView(props: ITxViewProps) {
         }}
         color="secondary"
         variant="outlined"
-        style={{ position: "relative", borderRadius: "10px", marginBottom: "10px" }}
+        style={{ position: "relative", borderRadius: "99px", margin: "10px 20px 20px 0px", textAlign: "center" }}
       >View Raw Transaction</Button>
-      <Typography variant="h6"><SwapHorizIcon style={{marginBottom: "-5px"}} /> Transaction Information</Typography>
+      <Typography variant="h6"><SwapHorizIcon style={{marginBottom: "-5px"}} /> Basic Information</Typography>
+      <br />
       <Table>
         <TableBody>
           <TableRow>
@@ -147,7 +153,9 @@ function TxView(props: ITxViewProps) {
       </Table>
 
       <br />
+      <br />
       <Typography variant="h6"><ReceiptIcon style={{marginBottom: "-5px"}} /> Receipt</Typography>
+      <br />
       {receipt &&
         <Table>
           <TableBody>
@@ -252,6 +260,9 @@ function TxView(props: ITxViewProps) {
         </Table>
       }
     </div>
+  <div style={{margin: "30px"}}>&nbsp;</div>
+</div>
+
   );
 }
 

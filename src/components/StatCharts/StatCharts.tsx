@@ -50,7 +50,7 @@ interface IProps {
 const StatCharts: React.FC<IProps> = ({ blocks, victoryTheme }) => {
   const { t } = useTranslation();
   return (
-    <Grid item container justify="center">
+    <Grid item container justify="center" style={{maxWidth: "90vw", margin: "auto", marginTop: "-50px", marginBottom: "20px"}}>
 
        {/* <Grid key="hashChart" item xs={12} md={6} lg={3}>
         <ChartCard title={t("Hash Rate")}>

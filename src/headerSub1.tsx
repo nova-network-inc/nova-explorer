@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function MenuListComposition2() {
+export default function HeaderSub1() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
@@ -64,10 +64,6 @@ export default function MenuListComposition2() {
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
-          style={{
-            fontWeight: "bold",
-            borderRadius: "10px",
-          }}
         >
           Network <KeyboardArrowDownIcon />
         </Button>

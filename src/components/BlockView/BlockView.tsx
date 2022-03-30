@@ -30,18 +30,21 @@ function BlockView(props: any) {
   const filledPercent = (hexToNumber(gasUsed) / hexToNumber(gasLimit)) * 100;
 
   return (
+    <div style={{marginTop: "auto"}}>
+
+    <h2 style={{textAlign: "center", margin: "20px"}}>Block Details</h2>
 
     <div style={{
-      width: "100%",
+      width: "1280px",
+      maxWidth: "90vw",
+      background: "rgba(255,255,255,0.05)",
       overflowX: "auto",
       margin: "20px auto 20px auto",
-      border: "1px solid #c0c0c0",
+      border: "1px solid rgba(0,0,0,0.05)",
       borderRadius: "10px",
       padding: "15px",
-      maxWidth: "1280px"
       }}>
 
-    <h2 style={{textAlign: "left" }}><RepeatIcon style={{marginBottom: "-5px"}} /> Exploring Block {hexToNumber(block.number)}</h2>
       <Table>
         <TableBody>
           <TableRow>
@@ -146,10 +149,26 @@ function BlockView(props: any) {
           </TableRow>
         </TableBody>
       </Table>
-      <h3><ReceiptIcon style={{marginBottom: "-5px"}} /> Transactions Processed</h3>
+    </div>
+
+      <h2 style={{textAlign: "center", margin: "20px"}}>Transactions</h2>
+
+    <div style={{
+      width: "1280px",
+      maxWidth: "90vw",
+      background: "rgba(255,255,255,0.05)",
+      overflowX: "auto",
+      margin: "20px auto 20px auto",
+      border: "1px solid rgba(0,0,0,0.05)",
+      borderRadius: "10px",
+      padding: "15px",
+      }}>
+
       <TxList transactions={transactions} />
 
     </div>
+    <div style={{margin: "30px"}}>&nbsp;</div>
+  </div>
   );
 }
 

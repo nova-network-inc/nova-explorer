@@ -20,13 +20,21 @@ const AddressTransactions: React.FC<IProps> = (props) => {
   const { t } = useTranslation();
   return (
     <div style={{
-      width: "100%",
-      overflowX: "auto",
-      margin: "20px auto 20px auto",
-      border: "1px solid #c0c0c0",
-      borderRadius: "10px",
-      padding: "15px",
+      margin: "auto",
+      textAlign: "center",
       maxWidth: "1280px"
+      }}>
+      <div style={{
+        background: "rgba(255,255,255,0.05)",
+        margin: "10px",
+        marginTop: "20px",
+        padding: "35px",
+        paddingTop: "45px",
+        lineHeight: ".05",
+        border: "1px solid rgba(0,0,0,0.05)",
+        borderRadius: "10px",
+        textAlign: "center",
+        minWidth: "15%",
       }}>
       <Grid container justify="flex-end">
         <IconButton onClick={props.onPrev} disabled={props.disablePrev}>
@@ -37,7 +45,7 @@ const AddressTransactions: React.FC<IProps> = (props) => {
         </IconButton>
       </Grid>
       <Grid container justify="flex-end">
-        <Typography>Showing block range: {props.to} - {props.from}</Typography>
+        <Typography>Block Range: {props.to} - {props.from}</Typography>
       </Grid>
       <TxList transactions={props.transactions || []} showBlockNumber={true}></TxList>
       {(!props.transactions || props.transactions.length === 0) &&
@@ -45,6 +53,7 @@ const AddressTransactions: React.FC<IProps> = (props) => {
           <Typography>{t("No Transactions for this block range.")}</Typography>
         </Grid>
       }
+      </div>
     </div>
   );
 };

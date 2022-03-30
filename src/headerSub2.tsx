@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function MenuListComposition() {
+export default function HeaderSub2() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
@@ -64,10 +64,6 @@ export default function MenuListComposition() {
           aria-controls={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
-          style={{
-            fontWeight: "bold",
-            borderRadius: "10px",
-          }}
         >
           Resources <KeyboardArrowDownIcon />
         </Button>
@@ -91,12 +87,20 @@ export default function MenuListComposition() {
                       >Verified Contracts
                     </MenuItem>
 
-                    <MenuItem
+                    {/* <MenuItem
                       onClick={() =>
                       window.open("/stats/validators", "_self")
                         }
                       style={{ fontSize: "10pt" }}
                       >Block Analytics
+                    </MenuItem> */}
+
+                    <MenuItem
+                      onClick={() =>
+                      window.open("https://smui.novanetwork.io/")
+                        }
+                      style={{ fontSize: "10pt" }}
+                      >Smart Contracts UI
                     </MenuItem>
 
                     <MenuItem
