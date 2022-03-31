@@ -114,8 +114,8 @@ export default (props: any) => {
           minWidth: "15%",
         }}>
 
-        <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: ".7"}}>Validators</p>
-        <p style={{fontSize: "24pt", fontWeight: "bold", lineHeight: ".7"}}>14</p>
+        <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: ".7"}}>Status</p>
+        <p style={{fontSize: "24pt", fontWeight: "bold", lineHeight: ".7"}}>Active</p>
         </div>
 
         <div style={{

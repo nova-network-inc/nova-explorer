@@ -75,7 +75,7 @@ function AddressView(props: IAddressViewProps) {
         minWidth: "15%",
       }}>
 
-      <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: "1"}}>View On</p>
+      <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: "1"}}>Wallets</p>
         <div style={{fontSize: "10pt", marginTop: "25px"}}>
           <p style={{lineHeight: "0.3"}}><Link href={ '/address/' + address + '?network=Nova%20Network' } >Nova Network</Link></p>
           <p style={{lineHeight: "0.3"}}><Link href={ '/address/' + address + '?network=Nebula%20Testnet' } >Nebula Testnet</Link></p>
