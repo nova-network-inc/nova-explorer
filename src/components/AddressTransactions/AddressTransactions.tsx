@@ -21,6 +21,7 @@ const AddressTransactions: React.FC<IProps> = (props) => {
   return (
     <div style={{
       margin: "auto",
+      marginBottom: "20px",
       textAlign: "center",
       maxWidth: "1280px"
       }}>
@@ -53,6 +54,7 @@ const AddressTransactions: React.FC<IProps> = (props) => {
           <Typography>{t("No Transactions for this block range.")}</Typography>
         </Grid>
       }
+      <div style={{margin: "10px"}} />
       </div>
     </div>
   );
