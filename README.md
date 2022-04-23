@@ -32,6 +32,16 @@ yarn start
 
 And once started, you can access Nova Explorer via your `localhost` port `3000` - type `http://localhost:3000` in your internet browser.
 
+## Production Build
+
+You can build an optimised production version of Nova Explorer by running the command:
+
+```shell
+yarn build
+```
+
+It will create a `/build` folder, and all you need to do to deploy it is to upload the files from within this folder to your own internet hosting service provider.
+
 ## Natively Compatible Networks
 
 Nova Explorer currently supports `Nova Network` as its primary network, but also offers support to `Nebula Testnet`, `Ethereum`, `Binance Smartchain`, and `Fantom Opera`. You can add support for more networks - or even your own private Nova Network instance - by editing the file `/src/hooks/useChainList.ts`.
