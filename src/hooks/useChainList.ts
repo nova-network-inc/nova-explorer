@@ -7,16 +7,31 @@ import React from "react";
 
 export default function() {
   const [chains, setChains] = React.useState<Chain[]>([
-{
+    {
       name: "Nova Network",
       network: "Mainnet",
       rpc: ["https://rpc.novanetwork.io:9070/"],
     },
     {
-          name: "Nebula Testnet",
-          network: "Testnet",
-          rpc: ["https://testnet.rpc.novanetwork.io:9070/"],
-        },
+      name: "Nebula Testnet",
+      network: "Testnet",
+      rpc: ["https://testnet.rpc.novanetwork.io:9070/"],
+    },
+    {
+      name: "Fantom Opera",
+      network: "Mainnet",
+      rpc: ["https://rpc.ftm.tools/"],
+    },
+    {
+      name: "Ethereum",
+      network: "Mainnet",
+      rpc: ["https://mainnet.infura.io/v3/56d2793090b6497192afd6454c815389"],
+    },
+    {
+      name: "Binance Smart Chain",
+      network: "Mainnet",
+      rpc: ["https://bsc-dataseed1.binance.org/"],
+    },
   ]);
 
   // uncomment once we add 'chain list provider' concept. This list blows.
