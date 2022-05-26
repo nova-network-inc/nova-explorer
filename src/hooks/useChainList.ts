@@ -10,7 +10,7 @@ export default function() {
     {
       name: "Nova Network",
       network: "Mainnet",
-      rpc: ["https://rpc.novanetwork.io:9070/"],
+      rpc: ["https://connect.novanetwork.io/"],
     },
     {
       name: "Nebula Testnet",
