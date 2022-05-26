@@ -31,10 +31,10 @@ function TxView(props: ITxViewProps) {
     <div style={{
       width: "1280px",
       maxWidth: "90vw",
-      background: "rgba(255,255,255,0.05)",
+      background: "rgba(0,0,0,0.05)",
       overflowX: "auto",
       margin: "20px auto 20px auto",
-      border: "1px solid rgba(0,0,0,0.05)",
+      border: "1px solid rgba(0,0,0,0.1)",
       borderRadius: "10px",
       padding: "15px",
       }}>

@@ -26,13 +26,13 @@ const AddressTransactions: React.FC<IProps> = (props) => {
       maxWidth: "1280px"
       }}>
       <div style={{
-        background: "rgba(255,255,255,0.05)",
+        background: "rgba(0,0,0,0.05)",
         margin: "10px",
         marginTop: "20px",
         padding: "35px",
         paddingTop: "45px",
         lineHeight: ".05",
-        border: "1px solid rgba(0,0,0,0.05)",
+        border: "1px solid rgba(0,0,0,0.1)",
         borderRadius: "10px",
         textAlign: "center",
         minWidth: "15%",

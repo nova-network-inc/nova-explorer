@@ -253,11 +253,16 @@ return (
   elevation={0}
   style={{
     borderBottom: "1px solid rgba(0,0,0,0.15)",
-    padding: "10px",
+    borderRight: "1px solid rgba(0,0,0,0.15)",
+    borderLeft: "1px solid rgba(0,0,0,0.15)",
+    padding: "5px",
     margin: "auto",
     alignContent: "center",
     alignItems: "center",
     textAlign: "center",
+    width: "95vw",
+    maxWidth: '1366px',
+    borderRadius: '0px 0px 10px 10px'
   }}>
 
 <Toolbar style={{
@@ -265,7 +270,6 @@ return (
   textAlign: "center",
   alignContent: "center",
   alignItems: "center",
-  padding: "10px",
   width: "100%",
   maxWidth: "1280px"
 }}>
@@ -318,20 +322,19 @@ return (
             style={{
               background: "rgba(0,0,0,0.15)",
               borderRadius: "99px",
-              padding: "10px 10px 10px 15px",
+              padding: "5px 5px 5px 15px",
               fontSize: "10pt",
               fontWeight: "normal",
               width: "700px",
-              minWidth: "310px",
-              maxWidth: "90vw",
-              margin: "auto",
+              minWidth: "305px",
+              maxWidth: "55vw",
+              margin: "5px",
               textAlign: "center"
             }}
           />
           </div>
           </Grid>
-
-          <div style={{margin: "7px"}}> <HeaderSub2 /> </div>
+          <div style={{margin: "0px 0px 0px 0px"}}> <HeaderSub2 /> </div>
 
       {/* <div style={{margin: "7px"}}> <HeaderSub1 />  </div> */}
 

@@ -105,7 +105,7 @@ export default function HeaderSub2() {
 
                     <MenuItem
                       onClick={() =>
-                      window.open("https://docs.novanetwork.io/getting-started/wallet-setup")
+                      window.open("https://novanetwork.io/wallet-setup/")
                         }
                       style={{ fontSize: "10pt" }}
                       >Wallet Setup

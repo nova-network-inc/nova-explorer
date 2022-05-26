@@ -32,12 +32,12 @@ function AddressView(props: IAddressViewProps) {
     <Grid item container justify="center" style={{maxWidth: "95vw"}}>
 
       <div style={{
-        background: "rgba(255,255,255,0.05)",
+        background: "rgba(0,0,0,0.05)",
         margin: "10px",
         padding: "35px",
         paddingTop: "40px",
         lineHeight: ".05",
-        border: "1px solid rgba(0,0,0,0.05)",
+        border: "1px solid rgba(0,0,0,0.1)",
         borderRadius: "10px",
         textAlign: "center",
         minWidth: "15%",
@@ -48,12 +48,12 @@ function AddressView(props: IAddressViewProps) {
       </div>
 
       <div style={{
-        background: "rgba(255,255,255,0.05)",
+        background: "rgba(0,0,0,0.05)",
         margin: "10px",
         padding: "35px",
         paddingTop: "40px",
         lineHeight: ".05",
-        border: "1px solid rgba(0,0,0,0.05)",
+        border: "1px solid rgba(0,0,0,0.1)",
         borderRadius: "10px",
         textAlign: "center",
         minWidth: "15%",
@@ -64,12 +64,12 @@ function AddressView(props: IAddressViewProps) {
       </div>
 
       <div style={{
-        background: "rgba(255,255,255,0.05)",
+        background: "rgba(0,0,0,0.05)",
         margin: "10px",
         padding: "25px",
         paddingTop: "35px",
         lineHeight: ".05",
-        border: "1px solid rgba(0,0,0,0.05)",
+        border: "1px solid rgba(0,0,0,0.1)",
         borderRadius: "10px",
         textAlign: "center",
         minWidth: "15%",
@@ -83,12 +83,12 @@ function AddressView(props: IAddressViewProps) {
       </div>
 
       <div style={{
-        background: "rgba(255,255,255,0.05)",
+        background: "rgba(0,0,0,0.05)",
         margin: "10px",
         padding: "25px",
         paddingTop: "25px",
         lineHeight: ".05",
-        border: "1px solid rgba(0,0,0,0.05)",
+        border: "1px solid rgba(0,0,0,0.1)",
         borderRadius: "10px",
         textAlign: "center",
         minWidth: "15%",
@@ -105,12 +105,12 @@ function AddressView(props: IAddressViewProps) {
     </Grid>
 
     <div style={{
-      background: "rgba(255,255,255,0.05)",
+      background: "rgba(0,0,0,0.05)",
       margin: "10px",
       padding: "25px",
       lineHeight: ".05",
 
-      border: "1px solid rgba(0,0,0,0.05)",
+      border: "1px solid rgba(0,0,0,0.1)",
       borderRadius: "10px",
       textAlign: "center",
       minWidth: "15%",

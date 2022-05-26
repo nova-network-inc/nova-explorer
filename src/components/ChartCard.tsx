@@ -9,8 +9,8 @@ interface IProps {
 const ChartCard: React.FC<IProps> = (props) => {
   return (
     <Card style={{
-      background: "rgba(255,255,255,0.05)",
-      border: "1px solid rgba(0,0,0,0.05)",
+      background: "rgba(0,0,0,0.05)",
+      border: "1px solid rgba(0,0,0,0.1)",
       borderRadius: "10px",
       textAlign: "center",
       padding: "5px",
