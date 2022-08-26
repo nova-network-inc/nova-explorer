@@ -18,19 +18,24 @@ export default function() {
       rpc: ["https://testnet.rpc.novanetwork.io:9070/"],
     },
     {
-      name: "Fantom Opera",
-      network: "Mainnet",
-      rpc: ["https://rpc.ftm.tools/"],
-    },
-    {
       name: "Ethereum",
       network: "Mainnet",
       rpc: ["https://mainnet.infura.io/v3/56d2793090b6497192afd6454c815389"],
     },
     {
+      name: "Ethereum Classic",
+      network: "Mainnet",
+      rpc: ["https://www.ethercluster.com/etc"],
+    },
+    {
       name: "Binance Smart Chain",
       network: "Mainnet",
       rpc: ["https://bsc-dataseed1.binance.org/"],
+    },
+    {
+      name: "Fantom Opera",
+      network: "Mainnet",
+      rpc: ["https://rpc.ftm.tools/"],
     },
   ]);
 

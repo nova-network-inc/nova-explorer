@@ -97,8 +97,9 @@ function AddressView(props: IAddressViewProps) {
       <p style={{fontSize: "12pt", fontWeight: "bold", lineHeight: "1"}}>Multichain</p>
         <div style={{fontSize: "10pt", marginTop: "25px"}}>
           <p style={{lineHeight: "0.3"}}><Link href={ '/address/' + address + '?network=Ethereum' } >Ethereum</Link></p>
-          <p style={{lineHeight: "0.3"}}><Link href={ '/address/' + address + '?network=Binance%20Smart%20Chain' } >Binance SC</Link></p>
+          <p style={{lineHeight: "0.3"}}><Link href={ '/address/' + address + '?network=Binance%20Smart%20Chain' } >BNB Chain</Link></p>
           <p style={{lineHeight: "0.3"}}><Link href={ '/address/' + address + '?network=Fantom%20Opera' } >Fantom Opera</Link></p>
+          <p style={{lineHeight: "0.3"}}><Link href={ '/address/' + address + '?network=Ethereum%20Classic' } >Ethereum Classic</Link></p>
         </div>
       </div>
 
