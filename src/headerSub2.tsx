@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -79,13 +79,13 @@ export default function HeaderSub2() {
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
 
-                     <MenuItem
+                     {/* <MenuItem
                       onClick={() =>
                       window.open("https://novanetwork.io/verified-contracts")
                         }
                       style={{ fontSize: "10pt" }}
                       >Verified Contracts
-                    </MenuItem>
+                    </MenuItem> */}
 
                     {/* <MenuItem
                       onClick={() =>

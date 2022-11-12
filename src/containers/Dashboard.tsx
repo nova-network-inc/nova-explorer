@@ -1,17 +1,17 @@
-import { Grid, Typography, CircularProgress, Theme, Button, Tooltip, IconButton } from "@material-ui/core";
+import { Grid, CircularProgress, Theme, Tooltip, IconButton } from "@material-ui/core";
 import useEthRPCStore from "../stores/useEthRPCStore";
 import * as React from "react";
 import { weiToGwei } from "../components/formatters";
-import HashRate from "../components/HashRate";
+// import HashRate from "../components/HashRate";
 import getBlocks, { useBlockNumber } from "../helpers";
 import useInterval from "use-interval";
 import { useTheme } from "@material-ui/styles";
 import getTheme from "../themes/victoryTheme";
-import ChartCard from "../components/ChartCard";
+// import ChartCard from "../components/ChartCard";
 import BlockListContainer from "./BlockList";
 import { hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
-import { ArrowForwardIos } from "@material-ui/icons";
+// import { ArrowForwardIos } from "@material-ui/icons";
 import StatCharts from "../components/StatCharts";
 import { Block as IBlock, IsSyncingResult as ISyncing} from "@etclabscore/ethereum-json-rpc";
 import { Public } from "@material-ui/icons";
@@ -247,7 +247,7 @@ export default (props: any) => {
             <IconButton
               size="small"
               onClick={() =>
-                window.open("https://twitter.com/NovaFinOfficial")
+                window.open("https://twitter.com/NovaNetworkSNT")
                   }
                 >
                 <TwitterIcon />

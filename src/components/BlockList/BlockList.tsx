@@ -41,8 +41,8 @@ function BlockList({ blocks }: any) {
             const filledPercent = (hexToNumber(b.gasUsed) / hexToNumber(b.gasLimit)) * 100;
 
             // Shorten hash views by concatenating first and last 4 chars.
-            const blockHashShort = b.hash.substring(2, 6) +
-              "..." + b.hash.substring(b.hash.length - 5, b.hash.length - 1);
+//            const blockHashShort = b.hash.substring(2, 6) +
+//              "..." + b.hash.substring(b.hash.length - 5, b.hash.length - 1);
             const authorHashShort = b.miner.substring(2, 6) + "..." +
               b.miner.substring(b.miner.length - 5, b.miner.length - 1);
 

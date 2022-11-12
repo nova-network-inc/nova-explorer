@@ -2,9 +2,9 @@ import {
   AppBar,
   CssBaseline,
   Toolbar,
-  Typography,
+
   IconButton,
-  Button,
+
   Grid,
   InputBase,
   Tooltip,
@@ -29,14 +29,14 @@ import NodeView from "./containers/NodeView";
 import Transaction from "./containers/Transaction";
 import { darkTheme, lightTheme } from "./themes/jadeTheme";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
-import NotesIcon from "@material-ui/icons/Notes";
+// import NotesIcon from "@material-ui/icons/Notes";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
-import CodeIcon from "@material-ui/icons/Code";
-import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
+// import CodeIcon from "@material-ui/icons/Code";
+// import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import useInterval from "use-interval";
 import ETHJSONSpec from "@etclabscore/ethereum-json-rpc-specification/openrpc.json";
 import { useTranslation } from "react-i18next";
-import LanguageMenu from "./containers/LanguageMenu";
+// import LanguageMenu from "./containers/LanguageMenu";
 import { createBrowserHistory } from "history";
 import ChainDropdown from "./components/ChainDropdown/ChainDropdown";
 import {
@@ -52,10 +52,10 @@ import MinerStatsPage from "./containers/MinerStatsPage";
 import { IChain as Chain } from "./models/chain";
 import useChainListStore from "./stores/useChainListStore";
 import useEthRPCStore from "./stores/useEthRPCStore";
-import AddChain from "./components/AddChain/AddChain";
+// import AddChain from "./components/AddChain/AddChain";
 import { NetworkWifi } from "@material-ui/icons";
 import { Public } from "@material-ui/icons";
-import HeaderSub1 from "./headerSub1"
+// import HeaderSub1 from "./headerSub1"
 import HeaderSub2 from "./headerSub2"
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -75,11 +75,11 @@ function App(props: any) {
   const theme = darkMode.value ? darkTheme : lightTheme;
 
   const [selectedChain, setSelectedChain] = useState<Chain>();
-  const [chains, setChains] = useChainListStore<[Chain[], Dispatch<Chain[]>]>();
+  const [chains] = useChainListStore<[Chain[], Dispatch<Chain[]>]>();
   const [ethRPC, setEthRPCChain] = useEthRPCStore();
 
-  const [addChainDialogIsOpen, setAddChainDialogIsOpen] =
-    useState<boolean>(false);
+//  const [addChainDialogIsOpen, setAddChainDialogIsOpen] =
+//    useState<boolean>(false);
 
   // default the selectedChain once chain list loads
   useEffect(() => {
@@ -230,19 +230,19 @@ function App(props: any) {
     }
   };
 
-  const openAddChainModal = () => {
-    setAddChainDialogIsOpen(true);
-  };
+//  const openAddChainModal = () => {
+//    setAddChainDialogIsOpen(true);
+//  };
 
-  const cancelAddChainDialog = () => {
-    setAddChainDialogIsOpen(false);
-  };
+//  const cancelAddChainDialog = () => {
+//    setAddChainDialogIsOpen(false);
+//  };
 
-  const submitAddChainDialog = (c: Chain) => {
-    setAddChainDialogIsOpen(false);
-    setChains(chains.concat(c));
-    setSelectedChain(c);
-  };
+//  const submitAddChainDialog = (c: Chain) => {
+//    setAddChainDialogIsOpen(false);
+//    setChains(chains.concat(c));
+//    setSelectedChain(c);
+//  };
 
 return (
 <Router history={history}>
@@ -366,7 +366,7 @@ return (
             <IconButton
               size="small"
               onClick={() =>
-              window.open("https://twitter.com/NovaFinOfficial")
+              window.open("https://twitter.com/NovaNetworkSNT")
             }
           >
               <TwitterIcon />

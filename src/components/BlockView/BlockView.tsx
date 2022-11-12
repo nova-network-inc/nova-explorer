@@ -4,17 +4,17 @@ import Link from "@material-ui/core/Link";
 import TxList from "../TxList";
 import { hexToDate, hexToString, hexToNumber } from "@etclabscore/eserialize";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
-import ReceiptIcon from '@material-ui/icons/Receipt';
-import RepeatIcon from '@material-ui/icons/Repeat';
+// import { useHistory } from "react-router-dom";
+// import ReceiptIcon from '@material-ui/icons/Receipt';
+// import RepeatIcon from '@material-ui/icons/Repeat';
 
-import { Table, TableBody, TableCell, TableRow, Button, LinearProgress, Typography } from "@material-ui/core";
+import { Table, TableBody, TableCell, TableRow, LinearProgress, Typography } from "@material-ui/core";
 
 import BlockGasPrice from "./BlockGasPrice";
 
 function BlockView(props: any) {
   const { block } = props;
-  const history = useHistory();
+  // const history = useHistory();
   const { t } = useTranslation();
 
   if (!block) {

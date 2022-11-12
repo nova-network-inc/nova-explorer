@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Grid } from "@material-ui/core";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
-import useDarkMode from "use-dark-mode";
+// import useDarkMode from "use-dark-mode";
 import Link from "@material-ui/core/Link";
 
 export interface IAddressViewProps {
@@ -14,8 +14,8 @@ export interface IAddressViewProps {
 
 function AddressView(props: IAddressViewProps) {
   const { address, balance, txCount, code } = props;
-  const { t } = useTranslation();
-  const darkMode = useDarkMode();
+//  const { t } = useTranslation();
+//  const darkMode = useDarkMode();
   return (
   <div style={{
     margin: "auto",
